@@ -7,6 +7,7 @@ Tigatrapp is a citizen science tool for studying the spread of tiger mosquitoes 
 **Core Requirements**
 
 _General Requirements_
+
 * Free and open source software licensed under GPLv3.
 * Multilingual: User should be able to select between Catalan, Spanish, and
 English.
@@ -24,7 +25,9 @@ simpler. This will be primarily a tool for submitting adult mosquito and
 breeding site reports and for viewing the webmap.
 * A simple HTML/CSS/JavaScript framework, like jquery mobile, would be
 acceptable for this version.
+
 _Introduction and Consent Activity_
+
 * This should be the first activity launched when the user first opens the app. It
 provides basic information about the project, and a consent form with a button
 for the user to indicate consent to sharing data. (We will provide all of the
@@ -35,7 +38,9 @@ the “user” database on the server.
 another initial activity) should generate a random User ID and password that
 are stored within the app, shared with the server, and used for authenticating
 server communications.
+
 _Main Switchboard Activity_
+
 * This is a simple switchboard that displays four buttons for navigating to the
 app’s main activities:
     * Report Breeding Site,
@@ -50,7 +55,9 @@ information on the app’s copyright, license, and funding.
     * Tigatrapp Project: Links to the Atrapaeltigre and MoveLab websites.
     * Help: Link to the Help website (which we are building separately for
 use by all versions.
+
 _Report Adult Mosquito Activity and Report Breeding Site Activity_
+
 * These are two activities presented presented in a form-like layout (the same
 layout is used for each activity, with minor changes). The layout includes the
 following rows that can be checked off when complete.
@@ -95,7 +102,9 @@ then the user is shown a confirmation dialog. Clicking yes on the confirmation
 dialog stores the report in the phone’s internal database and attempts to
 upload it (including the photos) to the server immediately if a connection is
 available or during a future sync if not.
+
 _View/Edit Data Activity_
+
 * This activity is a full-screen map on which the user’s reports are plotted with
 clickable icons. We may use the same webmap that we are using for the other
 versions here, although we will need to work out how editing reports works.
