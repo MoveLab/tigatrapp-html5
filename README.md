@@ -1,5 +1,5 @@
-Tigatrapp - HTML5 mobile app (tigatrapp-html5)
-===============================================
+Tigatrapp - HTML5 Mobile Application
+=====================================
 
 Tigatrapp is a citizen science tool for studying the spread of tiger mosquitoes in Spain. This repository contains the code for an HTML5 version of the app that will work on any device with a browser and allow offline use. It is at an easly stage and it is being actively developed right now. If you have any ideas for improvement, please contribute!
 
@@ -24,9 +24,9 @@ _Introduction and Consent Activity_
 provides basic information about the project, and a consent form with a button
 for the user to indicate consent to sharing data. 
 * If user consents, app generates a random UUID and posts this to the API in a JSON string as user_UUID. E.g.:
-
+'''
    {"user_UUID": "550e8400-e29b-41d4-a716-446655440000"}
-
+'''
 _Main Switchboard Activity_
 
 * This is a simple switchboard that displays four buttons for navigating to the
