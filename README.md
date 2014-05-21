@@ -3,42 +3,30 @@ Tigatrapp - HTML5 mobile app (tigatrapp-html5)
 
 Tigatrapp is a citizen science tool for studying the spread of tiger mosquitoes in Spain. This repository contains the code for an HTML5 version of the app that will work on any device with a browser and allow offline use. It is at an easly stage and it is being actively developed right now. If you have any ideas for improvement, please contribute!
 
+The basic set of features that we are aiming for in the final product are as follows:
 
-Core Requirements
+
+Features
 -----------------
 
-_General Requirements_
+**General**
 
 * Free and open source software licensed under GPLv3.
-* Multilingual: User should be able to select between Catalan, Spanish, and
+* Multilingual: User can select between Catalan, Spanish, and
 English.
-* Simple styles and design: The overall design should be attractive but as
-simple as possible. Should be similar to the Android version, but need not be
-identical.
-* The app should be optimized for mobile, touchscreen use but should work as
-well on desktop browsers.
-* It should function offline as much as possible, which means it should be
-written primarily in HTML, CSS, and JavaScript, and that it should have a
-manifest file to manage browser caching of all necessary files.
-* Since this version will not be able to perform background tasks to the same
-extent as the Android and iOS versions, the overall structure can be much
-simpler. This will be primarily a tool for submitting adult mosquito and
-breeding site reports and for viewing the webmap.
-* A simple HTML/CSS/JavaScript framework, like jquery mobile, would be
-acceptable for this version.
+* Similar to [Android version](https://play.google.com/store/apps/details?id=ceab.movelab.tigerapp). Provdes user with a tool for submitting repors on adult mosquitoes and breeding sites, and for viewing the crowdsourced webmap.
+* Optimized for mobile, touchscreen use.
+* Functions offline.
 
 _Introduction and Consent Activity_
 
-* This should be the first activity launched when the user first opens the app. It
+* First activity launched when the user first opens the app. It
 provides basic information about the project, and a consent form with a button
-for the user to indicate consent to sharing data. (We will provide all of the
-text.)
-* The user’s response to the consent form should be stored and uploaded to
-the “user” database on the server.
-* In the absence of the “User Accounts” Component (below), this activity (or
-another initial activity) should generate a random User ID and password that
-are stored within the app, shared with the server, and used for authenticating
-server communications.
+for the user to indicate consent to sharing data. 
+* If user consents, app generates a random UUID and posts this to the API in a JSON string as user_UUID. E.g.::
+   {
+        "user_UUID": "550e8400-e29b-41d4-a716-446655440000"
+    }
 
 _Main Switchboard Activity_
 
