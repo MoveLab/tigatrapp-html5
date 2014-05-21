@@ -24,9 +24,8 @@ _Introduction and Consent Activity_
 provides basic information about the project, and a consent form with a button
 for the user to indicate consent to sharing data. 
 * If user consents, app generates a random UUID and posts this to the API in a JSON string as user_UUID. E.g.:
-
-```
-   {"user_UUID": "550e8400-e29b-41d4-a716-446655440000"}
+```JSON
+{"user_UUID": "550e8400-e29b-41d4-a716-446655440000"}
 ```
 
 _Main Switchboard Activity_
