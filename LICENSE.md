@@ -15,7 +15,9 @@ Drop designed by Kristen Lehua from the Noun Project (http://thenounproject.com/
 
 Water designed by Alessandro Suraci from the Noun Project (http://thenounproject.com/term/water/12145/): Creative Commons – Attribution (CC BY 3.0).
 
-Map designed by Jonathan Higley from the Noun Project
+Map designed by Jonathan Higley from the Noun Project (http://thenounproject.com/term/map/5260/): Creative Commons – Attribution (CC BY 3.0).
+
+Images designed by Simon Henrotte from the Noun Project (http://thenounproject.com/term/images/22772/): Creative Commons – Attribution (CC BY 3.0).
 
 
 ---------------------------------------------------------------
