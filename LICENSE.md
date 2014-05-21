@@ -19,6 +19,7 @@ Map designed by Jonathan Higley from the Noun Project (http://thenounproject.com
 
 Images designed by Simon Henrotte from the Noun Project (http://thenounproject.com/term/images/22772/): Creative Commons – Attribution (CC BY 3.0).
 
+Pot designed by factor[e] design initiative from the Noun Project (http://thenounproject.com/term/pot/25923/): Creative Commons – Attribution (CC BY 3.0).
 
 ---------------------------------------------------------------
 
