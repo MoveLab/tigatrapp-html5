@@ -25,6 +25,8 @@ Pot designed by factor[e] design initiative from the Noun Project (http://thenou
 
 Location designed by Alex Auda Samora from the Noun Project (http://thenounproject.com/term/location/34744/): Creative Commons – Attribution (CC BY 3.0).
 
+Image assets were created using Android Asset Studio (https://romannurik.github.io/AndroidAssetStudio).
+
 ---------------------------------------------------------------
 
 GNU GENERAL PUBLIC LICENSE
