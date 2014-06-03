@@ -13,23 +13,19 @@ All tiger mosquito photographs are by Roger Eritja (http://eritja.com/).
 
 Mosquito designed by Monika Ciapala from the Noun Project (http://thenounproject.com/term/mosquito/3274/): Creative Commons – Attribution (CC BY 3.0).
 
-Drop designed by Kristen Lehua from the Noun Project (http://thenounproject.com/term/drop/19607/): Creative Commons – Attribution (CC BY 3.0).
-
 Water designed by Alessandro Suraci from the Noun Project (http://thenounproject.com/term/water/12145/): Creative Commons – Attribution (CC BY 3.0).
 
 Map designed by Jonathan Higley from the Noun Project (http://thenounproject.com/term/map/5260/): Creative Commons – Attribution (CC BY 3.0).
 
 Images designed by Simon Henrotte from the Noun Project (http://thenounproject.com/term/images/22772/): Creative Commons – Attribution (CC BY 3.0).
 
-<<<<<<< HEAD
 Superhero designed by Simon Child from the Noun Project (http://thenounproject.com/term/superhero/3302/): Creative Commons – Attribution (CC BY 3.0).
-=======
+
 Pot designed by factor[e] design initiative from the Noun Project (http://thenounproject.com/term/pot/25923/): Creative Commons – Attribution (CC BY 3.0).
 
 Location designed by Alex Auda Samora from the Noun Project (http://thenounproject.com/term/location/34744/): Creative Commons – Attribution (CC BY 3.0).
 
 Image assets were created using Android Asset Studio (https://romannurik.github.io/AndroidAssetStudio).
->>>>>>> 45ef6fd7f5ef80c17e5a2f8bb21090086ed11a3b
 
 ---------------------------------------------------------------
 
