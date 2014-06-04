@@ -1,4 +1,5 @@
-Copyright (C) 2014  John R.B. Palmer, Aitana Oltra, Joan Garriga, and Frederic Bartumeus 
+Copyright (C) 2014  John R.B. Palmer, Jordi López, Aitana Oltra, Joan Garriga, and Frederic Bartumeus 
+
 Contact: johnrbpalmer@gmail.com
  
 Tigatrapp is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or  (at your option) any later version.
