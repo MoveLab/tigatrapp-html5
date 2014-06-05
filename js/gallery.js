@@ -17,7 +17,6 @@ $(function() {
 	var elem = $("<div class='image'><img src='"+srcArray[0]+"' width='100%'/><div>"+
                     titleArray[0]+"</div>");
 	imageContainer.append(elem);
-	imagePos=1;
 
 	// Handle touch events
 	imageContainer.on("swipeleft", function() {

@@ -10,3 +10,15 @@
 	padding-left: 20%;
 	padding-right: 20%;
 }
+
+#mapFrame {
+    height: 87%;        // total - header
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
