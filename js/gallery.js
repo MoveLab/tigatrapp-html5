@@ -1,3 +1,5 @@
+// A very rough swipeable gallery 
+
 $(function() {
 	
 	var imageContainer = $("#galleryImg"); // Link to 'imageContainer' div
@@ -35,26 +37,32 @@ $(function() {
 	});
 	
 	function nextImage() {
-		imageContainer.empty(); // delete old elements
-		var elem = $("<div class='image'><img src='"+srcArray[imagePos]+"' width='100%'/><div>"+
-					titleArray[0]+"</div>");
-		imageContainer.append(elem);
+		applySwipeEffect();
 		imagePos=imagePos+1;
 		if(imagePos==srcArray.length) {
 			imagePos=0;
 		}
 	}
 	
-	function prevImage() {		
-		imageContainer.empty(); // delete old elements
-		var elem = $("<div class='image'><img src='"+srcArray[imagePos]+"' width='100%'/><div>"+
-					titleArray[0]+"</div>");
-		imageContainer.append(elem);
+	function prevImage() {	
+		applySwipeEffect();
 		imagePos=imagePos-1;
 		
 		if(imagePos<0) {
 			imagePos=srcArray.length-1;
 		}
+	}
+	
+	function applySwipeEffect() {
+	    // Use a fading effect, on fadeOut finish replace image and fadeIn
+		imageContainer.fadeOut(function() {
+		        imageContainer.empty(); // delete old elements
+        		var elem = $("<div class='image'><img src='"+srcArray[imagePos]+"' width='100%'/><div>"+
+        					titleArray[0]+"</div>");
+        		imageContainer.append(elem);
+        		imageContainer.fadeIn();
+		});
+
 	}
 });
 
