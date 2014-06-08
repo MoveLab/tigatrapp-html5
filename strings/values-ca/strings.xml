@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Tigatrapp
+ * Copyright (C) 2013, 2014  John R.B. Palmer, Aitana Oltra, Joan Garriga, and Frederic Bartumeus 
+ * Contact: info@atrapaeltigre.com
+ * 
+ * This file is part of Tigatrapp.
+ * 
+ * Tigatrapp is free software: you can redistribute it and/or modify 
+ * it under the terms of the GNU General Public License as published by 
+ * the Free Software Foundation, either version 3 of the License, or (at 
+ * your option) any later version.
+ * 
+ * Tigatrapp is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along 
+ * with Tigatrapp.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources>
+
+    <!-- Intro and Consent -->
+    <string name="consent_button_label">He llegit i accepto les condicions d\'ús</string>
+    <string name="decline_button_label">No hi estic d\'acord</string>
+
+    <!-- Gallery -->
+    <string-array name="gallery_array">
+        <item>Femella de mosquit tigre. Només els mosquits que: 1) són petits, 
+        negres i amb ratlles blanques, 2) tenen una ratlla blanca al cap i al tòrax i 3) tenen 
+        ratlles blanques a l\'abdomen i a 
+        les potes són mosquit tigre. Hi ha altres 
+        insectes semblants, cal evitar confondre\'ls!</item>
+        <item>Femella de mosquit tigre. Observa les ratlles a l\'abdomen. 
+           Recorda que el mosquit tigre és molt petit, 
+           no fa més de 5 mm (amb potes incloses, aproximadament la meitat d\'una moneda d\'1 cèntim).</item>
+        <item>Femella de mosquit tigre preparada per picar. 
+              Observa la ratlla blanca al cap i al tòrax i les ratlles a les potes.</item>
+        <item>Femella de mosquit tigre picant. 
+        Observa la característica ratlla blanca al cap i al tòrax. </item>
+        <item>Femella de mosquit tigre picant. 
+        Observa la característica ratlla blanca al cap i al tòrax. </item>
+        <item>Dues femelles de mosquit tigre picant. Recorda que només piquen les femelles. 
+        En el cas del mosquit tigre, acostumen a fer-ho durant el dia (i no quan és fosc) i normalment 
+        piquen a les cames. </item>
+        <item>Femella de mosquit tigre picant. La sang que acumula a l\'abdomen 
+        servirà per generar una posta d\'ous. </item>
+        <item>Posta d\'ous de mosquit tigre. Observa el color fosc i la forma allargada. 
+        Els ous són tan petits que són quasi invisibles a ull nu. 
+        Recorda que el mosquit tigre posa els ous en recipients petits, en parets 
+        seques prop d\'aigua estancada i bruta. </item>
+        <item>Larves (més allargades) i pupes (més arrodonides) de mosquit tigre. Observa que són aquàtiques. 
+        Les larves emergeixen dels ous quan aquests queden coberts d\'aigua i amb el temps fan la muda a pupes. </item>
+        <item>Larves (més allargades) i pupes (més arrodonides) de mosquit tigre. 
+        Recorda que per evitar tenir mosquit tigre a casa, 
+        cal evitar les petites acumulacions d\'aigua.</item>
+        <item>Dues pupes de mosquit tigre. En aquesta fase es produeix la metamorfosi, 
+        i el mosquit adult emergeix de la pupa cap al medi aeri. </item>
+    </string-array>
+    <!-- Toasts -->
+    <string name="toast_report_before_submitting_site">Per enviar aquest lloc de cria:</string>
+    <string name="toast_report_before_submitting_adult">Per enviar aquest albirament d\'adult:</string>
+    <string name="toast_complete_checklist">- Completa descripció</string>
+    <string name="toast_specify_location">- Especifica posició</string>
+    <string name="toast_attach_photo">- Adjunta imatge</string>
+
+    <!-- Switchboard -->
+    <string name="dataMap_CD">Les meves dades</string>
+    <string name="switchboard_button_text_report">ENVIA</string>
+    <string name="switchboard_button_text_sites">LLOC DE CRIA</string>
+    <string name="switchboard_button_text_adult">MOSQUIT TIGRE</string>
+    <string name="switchboard_button_text_map">EL MEU MAPA</string>
+    <string name="switchboard_button_text_gallery">GALERIA</string>
+
+    <!-- activity labels -->
+    <string name="activity_label_report_editing">Tigatrapp: Edita informe</string>
+    <string name="activity_label_report_new">Tigatrapp: Nou informe</string>
+    <string name="activity_label_map">Tigatrapp: El meu Mapa</string>
+    <string name="activity_label_gallery">Tigatrapp: Galeria</string>
+
+    <!-- Reports -->
+    <string name="checklist_label_editing">Descripció*</string>
+    <string name="location_label_editing">Localització*</string>
+    <string name="photo_check_label_editing">Imatges</string>
+    <string name="note_check_label_editing">Nota</string>
+    <string name="report_title_adult">Mosquit tigre</string>
+    <string name="report_title_site">Lloc de cria</string>
+    <string name="checklist_label">Completa descripció*</string>
+    <string name="location_label">Afegeix localització*</string>
+    <string name="location_current_label">Utilitza GPS</string>
+    <string name="location_select_label">Seleciona al mapa</string>
+    <string name="location_current_label_button">Actual</string>
+    <string name="location_select_label_button">Senyala</string>
+    <string name="location_menu_title">Utilitza posició actual o senyala posició al mapa</string>
+    <string name="photo_check_label">Adjunta imatges</string>
+    <string name="note_check_label">Afegeix nota</string>
+    <string name="update">Actualitza</string>
+    <string name="created_on">Enviat:</string>
+    <string name="delete_report_warning">Elimina informe?</string>
+    <string name="word_report">Informe</string>
+    <string name="photo_label">Imatges</string>
+    <string name="photo_label_star">Imatges*</string>
+    <string name="site_report_q1">Selecciona lloc de cria</string>
+    <string name="site_report_q2">Conté aigua?</string>
+    <string name="site_report_q3">Conté larves o pupes de mosquit (de qualsevol espècie)?</string>
+    <string name="adult_report_q3">Té ratlles blanques a l\'abdomen i a les potes?</string>
+    <string name="q3_headthorax_text">El mosquit tigre té una ratlla blanca al cap i al tòrax. Evita enviar dades d\'altres insectes.</string>
+    <string name="q2_abdomenlegs_text">El mosquit tigre té ratlles blanques a l\'abdomen i a les potes. Evita enviar dades d\'altres insectes.</string>
+    <string name="identifying_mosquitoes_title">Descripció del mosquit</string>
+    <string name="confirmation_q1_adult_sizecolor">És petit i negre amb ratlles blanques?</string>
+    <string name="q1_sizecolor_text">El mosquit tigre és petit i negre amb ratlles blanques. Normalment és actiu només de dia i acostuma a picar a les cames. Evita enviar dades d\'altres insectes.</string>
+    <string name="adult_report_help_html">
+<![CDATA[
+<p><b>AJUDA:</b><br/>
+<b>Creus que has trobat un mosquit tigre? Respon l\'informe i envia les dades. Els camps amb asterisc (*) són obligatoris.</b>
+</p>
+<p>
+<ul>
+<li><b>Descripció</b>: respon el formulari, t\'ajudarà a saber si és un mosquit tigre i facilitarà la interpretació de les dades.</li> 
+<br/>
+<li><b>Localització</b>: escull posició actual si el mosquit l\'has atrapat al lloc on es troba el telèfon, o senyala la posició al mapa si l\'has trobat a un altre lloc. Activa el GPS si vols que la posició de la teva troballa sigui més precisa.</li>  
+<br/>
+<li><b>Imatges</b>: fes una foto  o adjunta una foto del mosquit que hagis fet amb un altre dispositiu.</li>
+<br/>
+<li><b>Notes</b>: si vols, descriu millor la teva troballa.</li>
+</ul>
+</p> 
+<p>Un cop enviat, podràs consultar i editar l\'informe al teu mapa. Les dades que enviïs seran publicades al mapa del mosquit tigre a la web <a href="www.atrapaeltigre.com">www.atrapaeltigre.com</a>.</p>        
+   ]]>
+    </string>
+    <string name="site_report_help_html">
+<![CDATA[
+<p><b>AJUDA:</b><br/> 
+<b>Has trobat un lloc públic on creus que el mosquit tigre pot criar? Respon l\'informe i envia les dades. És necessari completar els camps amb asterisc (*).</b>
+</p>
+<ul> 
+<li><b>Descripció</b>: respon el formulari per facilitar la interpretació de les dades.</li> 
+<br/>
+<li><b>Localització</b>: escull posició actual si el lloc de cria es troba al lloc on tens el telèfon, o senyala la posició al mapa si l\'has trobat a un altre lloc. Activa el GPS si vols que la posició de la teva troballa sigui més precisa.</li>  
+<br/>
+<li><b>Imatges</b>: fes una foto o adjunta una foto de lloc de cria feta amb un altre dispositiu.</li> 
+<br/>
+<li><b>Notes</b>: si vols, descriu millor la teva troballa.</li>
+</ul> 
+</p>
+<p>Un cop enviat, podràs consultar i editar l\'informe al teu mapa. Les dades que enviïs seran publicades al mapa del mosquit tigre a la web www.atrapaeltigre.com.</p>        
+       ]]>
+    </string>
+    <string name="site_report_item_help_1">
+<![CDATA[  
+<p>Les larves i pupes de mosquit tigre viuen en dipòsits o recipients petits, amb aigua estancada o bruta (sense peixos). Exemples: embornals, fonts, dipòsits, pous, galledes, etc.</p> 
+<p>El mosquit tigre no cria a la platja, ni als rius, ni als llacs, ni als aiguamolls o estanys. Les larves que hi trobis no són de mosquit tigre.</p>    
+       ]]>
+    </string>
+    <string name="site_report_item_help_2">
+<![CDATA[      
+<p>Les larves i pupes necessiten aigua estancada i amb matèria orgànica (aliment) per viure. Evita tenir petites acumulacions d\'aigua a casa teva.</p> 
+]]>
+    </string>
+    <string name="site_report_item_help_3">
+<![CDATA[      
+<p>Les larves de mosquit són fàcils de reconèixer. Són allargades, més petites que una moneda d\'1 cèntim i naden fent piruetes. Es belluguen molt i pugen a la superfície de l\'aigua per respirar.</p>
+
+<p>Si trobes larves de mosquit en un recipient (de qualsevol espècie), has trobat un potencial lloc de cria de mosquit tigre. Si evites tenir petites acumulacions d\'aigua a casa teva, estaràs combatent el mosquit tigre.</p> 
+       ]]>
+    </string>
+    <string name="embornals">Embornals</string>
+    <string name="fonts">Fonts</string>
+    <string name="basses">Basses artificials petites</string>
+    <string name="bidons">Bidons</string>
+    <string name="pous">Pous</string>
+    <string name="altres">Altres</string>
+    <string name="report_checklist_title_adult">Descripció del mosquit</string>
+    <string name="report_checklist_title_site">Descripció del lloc de cria</string>
+
+    <!-- View Report -->
+    <string name="return_to_map">Torna</string>
+    <string name="delete_report">Elimina</string>
+    <string name="edit_report">Edita</string>
+    <string name="report_not_saved_warning">L\'informe no s\'ha guardat. Vols sortit igualment?</string>
+    <string name="exit_question">Sortir?</string>
+    <string name="no_note_attached">Cap nota adjunta</string>
+    <string name="no_photo_attached">Cap imatge adjunta</string>
+    <string name="checklist_tab_title">Descripció</string>
+    <string name="photos_tab_title">Imatges</string>
+    <string name="notes_tab_title">Notes</string>
+    <string name="view_report_title_adult">Troballa de mosquit tigre</string>
+    <string name="view_report_title_site">Lloc de cria</string>
+
+    <!-- Photo Selector -->
+    <string name="photo_selector_title">Afegeix imatges</string>
+    <string name="photo_selector_take_photo_button">Fes foto</string>
+    <string name="photo_selector_attach_photo_button">Adjunta foto</string>
+    <string name="photo_selector_remove_attachment">Elimina adjunt</string>
+    <string name="photo_selector_remove_this_photo">Elimina</string>
+    <string name="photo_selector_from_thisreport">d\'aquest informe</string>
+    <string name="photo_selector_remove_button_label">Elimina</string>
+
+    <!-- RSS Feeds -->
+    <string name="rss_internet_connection_warning">Sense connexió a internet.\n\nPer veure el contingut, connecta\'t i selecciona \'actualitza\' al menú</string>
+    <string name="rss_title_tigatrapp">Notícies d\'AtrapaelTigre.com</string>
+
+    <!-- Tasks -->
+    <string name="task_list_title">Missions</string>
+    <string name="task_list_pending">Pendents</string>
+    <string name="task_list_completed">Completades</string>
+    <string name="delete_task_from_list_question">Elimina missió de la llista</string>
+    <string name="delete">Elimina</string>
+    <string name="new_mission">Nova missió Tigatrapp!</string>
+    <string name="mission_button_left_survey">Envia ara</string>
+    <string name="mission_button_left_url">Visita la pàgina</string>
+    <string name="mission_button_middle">Envia més tard</string>
+    <string name="mission_button_right">Elimina</string>
+    <string name="mission_button_mark_complete">Missió realizada</string>
+    <string name="toast__mission_already_complete">Aquesta missió ja s\'ha realitzat. Gràcies!</string>
+    <string name="toast_mission_expired">Aquesta missió ha expirat.</string>
+
+    <!-- Menu -->
+    <string name="menu_option_task_list">Missions</string>
+    <string name="menu_option_tigatrapp_news">Notícies</string>
+    <string name="menu_option_settings">Ajustos</string>
+    <string name="menu_option_help">Ajuda</string>
+    <string name="menu_option_about">Sobre</string>
+    <string name="menu_option_share">Comparteix</string>
+    <string name="menu_option_filter">Filtra</string>
+    <string name="menu_option_show_pending_tasks_only">Només missions pendents</string>
+    <string name="menu_option_show_all_tasks">Totes</string>
+    <string name="menu_option_map_type_label">Tipus de mapa</string>
+    <string name="menu_option_map_type_satellite">Imatge</string>
+    <string name="menu_option_map_type_street">Topogràfic</string>
+    <string name="menu_option_share_map">Comparteix mapa</string>
+    <string name="menu_option_save_map">Guarda mapa</string>
+    <string name="menu_map_save">Guarda</string>
+    <string name="menu_map_share">Comparteix</string>
+    <string name="menu_toggle_view">Imatge</string>
+    <string name="menu_option_refresh">Actualitza</string>
+
+    <!-- Settings -->
+    <string name="settings_language_title">Idioma</string>
+    <string name="settings_language_detail">Selecciona idioma</string>
+    <string name="settings_language_button">Selecciona</string>
+    <string name="settings_sync_title">Sincronitza</string>
+    <string name="settings_sync_detail">Forçar connexió amb servidor per enviar dades i descarregar missions</string>
+    <string name="settings_sync_button">Sinc.</string>
+    <string name="settings_syncing">Sincronitzant dades.</string>
+    <string name="on">Encès</string>
+    <string name="off">Apagat</string>
+    <string name="sample_my_locations">Geolocalització</string>
+    <string name="sampling_is_off">Permetre enviament de dades aproximades de la meva localització en background</string>
+    <string name="sampling_is_on">Permetre enviament de dades aproximades de la meva localització en background</string>
+
+    <!-- Misc -->
+
+    <string name="added_current_loc">Posició actual guardada</string>
+    <string name="refresh">Actualitza</string>
+    <string name="report_deleted">Informe esborrat</string>
+    <string name="edit">Edita</string>
+    <string name="edit_title_adult">Troballa de mosquit tigre</string>
+    <string name="edit_title_site">Lloc de cria</string>
+    <string name="cd_help_icon">Ajuda</string>
+    <string name="open">Obre</string>
+    <string name="spinner_prompt">Selecciona resposta</string>
+    <string name="spinner_nothing_selected">Selecciona</string>
+    <string name="help">Ajuda</string>
+    <string name="photo_credit_gallery">Fotografia de R. Eritja (www.eritja.com)</string>
+    <string name="photo_credit">Fotografies de R. Eritja (www.eritja.com)</string>
+    <string name="nolocnogps_alert">No s\'ha pogut detectar la teva posició perquè ni el GPS ni la ubicació per xarxa mòbil i/o Wi-Fi estan activats. Activa\'ls o senyala la posició al mapa</string>
+    <string name="progtitle_report">Enviant</string>
+    <string name="nolocation_alert_report">No s\'ha pogut detectar la teva posició. Espera uns segons i torna-ho a intentar o senyala la posició al mapa</string>
+    <string name="upload_error_report">Error d\'enviament. El teu informe s\'ha guardat al mòbil i s\'enviarà més tard. Gràcies per participar</string>
+    <string name="offline_report">Sense connexió a internet. El teu informe s\'enviarà automàticament quan torni la connexió. Gràcies per participar</string>
+    <string name="about">Informació</string>
+    <string name="add_note">Descripció o nota opcional per acompanyar el teu informe</string>
+    <string name="button_submit_CD">Botó per enviar el teu informe al centre de recerca</string>
+    <string name="cancel">Anul·la</string>
+    <string name="ceab_CD">CEAB logo</string>
+    <string name="data_saved">Dades guardades com </string>
+    <string name="data_SD_error">Error al guardar l\'arxiu a la targeta SD</string>
+    <string name="data_SD_unavailable">Targeta SD No Disponible – l\'arxiu no es pot guardar</string>
+    <string name="dipsalut_CD">Dipsalut logo</string>
+    <string name="dontknow">No ho sé</string>
+    <string name="fecyt_CD">FECYT logo</string>
+    <string name="funded_by">Finançat per:</string>
+    <string name="funding_and_support">Finançament i Suport</string>
+    <string name="gallery">Galeria d\'Imatges</string>
+    <string name="GPL">Veure GPL</string>
+    <string name="gpl_heading">GPL</string>
+    <string name="LGPL">Veure LGPL</string>
+    <string name="license">Llicència</string>
+   
+    <string name="mailing_spec_title">Envia una mostra</string>
+    <string name="movelab">MoveLab\nCentre d\'Estudis Avançats de Blanes (CEAB-CSIC)</string>
+    <string name="movelab_address1">C/ d\'accés a la Cala St. Francesc, 14</string>
+    <string name="movelab_address2">Blanes. Girona. E-17300</string>
+    <string name="movelab_banner_CD">MoveLab logo</string>
+    <string name="no">No</string>
+    <string name="noGPSnoNetAlert">El GPS i la recepció de xarxa telefònica estan desactivats. No se\'t pot localitzar sense com a mínim un d\'ells activat. Vols activar-los?</string>
+    <string name="notes_title">Missatge</string>
+    <string name="ok">OK</string>
+    <string name="project_email">info@atrapaeltigre.com</string>
+    <string name="project_website">http://atrapaeltigre.com/</string>
+    <string name="report_sent">Si cliques OK, les teves dades s\'enviaran al grup de recerca responsable del projecte. Part de les dades es faran públiques al mapa web del mosquit tigre a la pàgina web www.atrapaeltigre.com</string>
+    <string name="report_sent_confirmation">Gràcies per participar</string>
+    <string name="reportGallery_CD">Botó per accedir a la galeria d\'imatges del mosquit tigre</string>
+    <string name="saved_image_prefix">elMeuMapa</string>
+    <string name="scm_CD">SCM logo</string>
+    <string name="send_spec_text">Enviaràs el teu mosquit per correu postal al centre de recerca?</string>
+    <string name="share_with">Comparteix</string>
+    <string name="submit">Envia</string>
+    <string name="supported_by">Amb el suport de:</string>
+    <string name="confirmation_q2_adult_headthorax">Té una ratlla blanca al cap i al tòrax?</string>
+    <string name="type_here">Utilitza aquest espai per afegir una nota o comentari si és necessari</string>
+    <string name="view_gpl_english">Veure GPL versió oficial</string>
+    <string name="yes">Sí</string>
+    <string name="your_report_id_is">"El codi de la teva Tigre troballa és: "</string>
+    <string name="photo_credits">Les fotografies de l\'App Tigatrapp han estat cedides per R. Eritja (www.eritja.com).</string>
+    <string name="copyright">
+<![CDATA[
+<p>Copyright &#169; 2013, 2014 John R.B. Palmer, Aitana Oltra, Joan Garriga i Frederic Bartumeus</p>
+    ]]>
+    </string>
+
+</resources>

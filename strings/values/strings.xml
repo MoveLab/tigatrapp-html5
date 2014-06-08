@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Tigatrapp
+ * Copyright (C) 2013, 2014  John R.B. Palmer, Aitana Oltra, Joan Garriga, and Frederic Bartumeus 
+ * Contact: info@atrapaeltigre.com
+ * 
+ * This file is part of Tigatrapp.
+ * 
+ * Tigatrapp is free software: you can redistribute it and/or modify 
+ * it under the terms of the GNU General Public License as published by 
+ * the Free Software Foundation, either version 3 of the License, or (at 
+ * your option) any later version.
+ * 
+ * Tigatrapp is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along 
+ * with Tigatrapp.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<resources>
+
+
+    <!-- Gallery -->
+    <string-array name="gallery_array">
+        <item>Female tiger mosquito. Tiger mosquitoes (1) are small and black with white stripes, 
+        (2) they have a white stripe on the head and thorax, and (3) they have white stripes on the abdomen 
+        and legs. There are other similar insects, so it is important to avoid confusing them!</item>
+        <item>Female tiger mosquito. Note the stripes on the abdomen. 
+        Remember that the tiger mosquito is very small, 
+        not more than 5 mm (including legs, about half the size of a 1 cent coin).</item>
+        <item>Female tiger mosquito ready to bite. 
+        Note the white stripe on the head and thorax, and the stripes on the legs .</item>
+        <item>Female tiger mosquito biting. Note 
+        the characteristic white stripe on the head and thorax. </item>
+        <item>Female tiger mosquito biting. 
+        Note the characteristic white stripe on the head and thorax. </item>
+        <item>Two female tiger mosquitoes biting. Remember that only the females bite. 
+        Tiger mosquitoes usually bite during the day (not when it\'s dark)
+         and they usually bite legs.</item>
+        <item>Female tiger mosquito biting. 
+        The blood that accumulates in the abdomen will trigger the laying of eggs.</item>
+        <item>Tiger mosquito laying eggs. Note the eggs\' dark color and elongated shape. 
+        The eggs are so small that they are almost invisible to the naked eye. 
+        Remember that the tiger mosquito lays eggs in small containers, 
+        on dry walls by stagnant and dirty water.</item>
+        <item>Tiger mosquito larvae (more elongated) and pupae (more rounded).
+        Note that they are aquatic. 
+        The larvae emerge from the eggs when they are covered with water and eventually make 
+        the transition to pupae.</item>
+        <item>Tiger mosquito larvae (more elongated) and pupae (more rounded). 
+        Remember that to keep tiger mosquitos out of your home you need to avoid having standing 
+        water in which the larvae can develop!</item>
+        <item>Two tiger mosquito pupae. 
+        This is the phase in which metamorphosis occurs, and the adult
+         mosquito emerges from the pupa and enters the aerial environment.</item>
+    </string-array>
+
+    <!-- Toasts -->
+    <string name="toast_report_before_submitting_site">Before submitting this breeding site report, please:</string>
+    <string name="toast_report_before_submitting_adult">Before submitting this tiger mosquito report, please:</string>
+    <string name="toast_complete_checklist">- complete the checklist</string>
+    <string name="toast_specify_location">- specify a location</string>
+    <string name="toast_attach_photo">- attach a photo of the breeding site</string>
+
+    <!-- Intro and Consent -->
+    <string name="consent_button_label">I have read and I accept these conditions</string>
+    <string name="decline_button_label">I decline to consent</string>
+
+    <!-- Switchboard -->
+    <string name="dataMap_CD">My Data</string>
+    <string name="switchboard_button_text_report">REPORT</string>
+    <string name="switchboard_button_text_sites">BREEDING SITE</string>
+    <string name="switchboard_button_text_adult">TIGER MOSQUITO</string>
+    <string name="switchboard_button_text_map">MY MAP</string>
+    <string name="switchboard_button_text_gallery">GALLERY</string>
+
+    <!-- activity labels -->
+    <string name="activity_label_report_editing">Tigatrapp: Report Editor</string>
+    <string name="activity_label_report_new">Tigatrapp: New Report</string>
+    <string name="activity_label_map">Tigatrapp: My Report Map</string>
+    <string name="activity_label_gallery">Tigatrapp: Gallery</string>
+
+    <!-- Reports -->
+    <string name="checklist_label_editing">Description*</string>
+    <string name="location_label_editing">Location*</string>
+    <string name="photo_check_label_editing">Photo(s)</string>
+    <string name="note_check_label_editing">Note</string>
+    <string name="report_title_adult">Tiger Mosquito</string>
+    <string name="report_title_site">Breeding Site</string>
+    <string name="checklist_label">Add description*</string>
+    <string name="location_label">Add location*</string>
+    <string name="location_current_label">Current</string>
+    <string name="location_select_label">Choose on map</string>
+    <string name="location_current_label_button">Current</string>
+    <string name="location_select_label_button">Select</string>
+    <string name="location_menu_title">Use current location or select location from map?</string>
+    <string name="photo_check_label">Add photo(s)</string>
+    <string name="note_check_label">Add note</string>
+    <string name="update">Update</string>
+    <string name="created_on">Sent:</string>
+    <string name="delete_report_warning">Are you sure you want to delete this report?</string>
+    <string name="word_report">Report</string>
+    <string name="photo_label">Photo(s)</string>
+    <string name="photo_label_star">Photo(s)*</string>
+    <string name="site_report_q1">Type of breeding site</string>
+    <string name="site_report_q2">Does it have stagnant water inside?</string>
+    <string name="site_report_q3">Have you seen mosquito larvae (not necessarily tiger mosquito) inside?</string>
+    <string name="q2_abdomenlegs_text">Tiger mosquitoes have white stripes on their abdomens and legs.</string>
+    <string name="identifying_mosquitoes_title">Identifying Tiger Mosquitoes</string>
+    <string name="confirmation_q1_adult_sizecolor">Is it small and black with white stripes?</string>
+    <string name="q1_sizecolor_text">Tiger mosquitoes are small and black with white stripes.</string>
+    <string name="confirmation_q2_adult_headthorax">Does it have a white stripe on the head and thorax?</string>
+    <string name="adult_report_q3">Does it have white stripes on the abdomen and legs?</string>
+    <string name="embornals">Storm drain</string>
+    <string name="fonts">Fountain</string>
+    <string name="basses">Basin</string>
+    <string name="bidons">Bucket</string>
+    <string name="pous">Well</string>
+    <string name="altres">Other</string>
+    <string name="report_checklist_title_adult">Adult Checklist</string>
+    <string name="report_checklist_title_site">Site Checklist</string>
+    <string name="adult_report_help_html">
+<![CDATA[        
+<p><b>HELP:</b> <br/> 
+<b>Think you\'ve found a tiger mosquito? Fill out this report and send in your data. Fields marked with an asterisk (*) are required.</b> 
+</p> 
+<p> 
+<ul> 
+<li><b>Description</b>: The questions here will help you decide if what you\'ve found is really a tiger mosquito.</li> 
+<br/> 
+<li><b>Location</b>: Choose current location if you are still in the place where you found the mosquito. (Make sure you have GPS enabled on your phone.) Otherwise, select the mosquito\'s location on the map.</li> 
+<br/> 
+<li><b>Photo(s)</b>: Take a photo of the mosquito now or attach one from a file.</li> 
+<br/> 
+<li><b>Notes</b>: Add a note if you want to send additional information about your finding.</li> 
+</ul> 
+</p> 
+<p>Once sent, you can view and edit your report on your phone by selecting the map activity from the main screen and then clicking on a report icon. The information you submit will also be published map on a public tiger mosquito map at <a href="www.atrapaeltigre.com"> www.atrapaeltigre.com </a>.</p>
+   ]]>
+    </string>
+    <string name="site_report_help_html">
+<![CDATA[
+<p><b>HELP:</b> <br/> 
+<b>Found a public space where you think the tiger mosquito can breed? Fill out this report and send in your data. Fields marked with an asterisk (*) are required.</b> 
+</p> 
+<p> 
+<ul> 
+<li><b>Description</b>: The questions here will help you decide if what you\'ve found is really a tiger mosquito breeding site.</li> 
+<br/> 
+<li><b>Location</b>: Choose current location if you are still at the site. (Make sure you have GPS enabled on your phone.) Otherwise, select the site\'s location on the map.</li> 
+<br/> 
+<li><b>Photo(s)</b>: Take a photo of the site now or attach one from a file.</li> 
+<br/> 
+<li><b>Notes</b>: Add a note if you want to send additional information about your finding.</li> 
+</ul> 
+</p> 
+<p>Once sent, you can view and edit your report on your phone by selecting the map activity from the main screen and then clicking on a report icon. The information you submit will also be published map on a public tiger mosquito map at <a href="www.atrapaeltigre.com"> www.atrapaeltigre.com </a>.</p>
+       ]]>
+    </string>
+    <string name="site_report_item_help_1">
+<![CDATA[      
+<p>Tiger mosquito larvae and pupae live in deposits and small containers of standing water that is dirty (and has no fish). Examples: storm drains, fountains, basins, wells, buckets, etc.. </ P> 
+<p>Tiger mosquito larvae are generally not found on the beach or in rivers, lakes, ponds, or wetlands (although you may find other types of larvae in these places).</p>       
+]]>
+    </string>
+    <string name="site_report_item_help_2">
+<![CDATA[   
+<p>The larvae and pupae need stagnant water and organic matter (food) to survive. Avoid letting water accumulate in or around you home.</p>
+   ]]>
+    </string>
+    <string name="site_report_item_help_3">
+<![CDATA[     
+<p>The mosquito larvae are easy to recognize. They are elongated and smaller than a 1-cent coin, and they swim and do pirouettes in the water. They move a lot and come to the surface of the water to breathe.</p>    
+]]>
+    </string>
+
+    <!-- View Report -->
+    <string name="return_to_map">Back</string>
+    <string name="delete_report">Delete</string>
+    <string name="edit_report">Edit</string>
+    <string name="report_not_saved_warning">This report has not been saved. Are you sure you want to exit?</string>
+    <string name="exit_question">Exit?</string>
+    <string name="no_note_attached">No note attached</string>
+    <string name="no_photo_attached">No photo attached</string>
+    <string name="checklist_tab_title">Checklist</string>
+    <string name="photos_tab_title">Photos</string>
+    <string name="notes_tab_title">Notes</string>
+    <string name="view_report_title_adult">Adult Report</string>
+    <string name="view_report_title_site">Breeding Site Report</string>
+
+    <!-- Photo Selector -->
+    <string name="photo_selector_title">Report Photos</string>
+    <string name="photo_selector_take_photo_button">Take new photo</string>
+    <string name="photo_selector_attach_photo_button">Attach from file</string>
+    <string name="photo_selector_remove_attachment">Remove Attachment</string>
+    <string name="photo_selector_remove_this_photo">Remove this photo</string>
+    <string name="photo_selector_from_thisreport">from this report</string>
+    <string name="photo_selector_remove_button_label">Remove</string>
+
+    <!-- RSS Feeds -->
+    <string name="rss_internet_connection_warning">No internet connection.\n\nTo view the feed, please connect to the internet and select \'refresh\' from the menu.</string>
+    <string name="rss_title_tigatrapp">News from AtrapaelTigre.com</string>
+
+    <!-- Tasks -->
+    <string name="task_list_title">Missions</string>
+    <string name="task_list_pending">Pending</string>
+    <string name="task_list_completed">Complete</string>
+    <string name="delete_task_from_list_question">Delete mission from list?</string>
+    <string name="delete">Delete</string>
+    <string name="new_mission">New Tigatrapp mission!</string>
+    <string name="mission_button_left_survey">Submit responses</string>
+    <string name="mission_button_left_url">Visit webpage</string>
+    <string name="mission_button_middle">Do mission later</string>
+    <string name="mission_button_right">Delete mission</string>
+    <string name="mission_button_mark_complete">Mark complete</string>
+    <string name="toast__mission_already_complete">You have already completed this mission. Thank you!</string>
+    <string name="toast_mission_expired">This mission has expired.</string>
+
+    <!-- Menu -->
+    <string name="menu_option_task_list">Missions</string>
+    <string name="menu_option_tigatrapp_news">News</string>
+    <string name="menu_option_settings">Settings</string>
+    <string name="menu_option_help">Help</string>
+    <string name="menu_option_about">About</string>
+    <string name="menu_option_share">Share</string>
+    <string name="menu_option_filter">Filter</string>
+    <string name="menu_option_show_pending_tasks_only">Show pending tasks only</string>
+    <string name="menu_option_show_all_tasks">Show all tasks</string>
+    <string name="menu_option_map_type_label">Map Type</string>
+    <string name="menu_option_map_type_satellite">Satellite Map</string>
+    <string name="menu_option_map_type_street">Street Map</string>
+    <string name="menu_option_share_map">Share Map</string>
+    <string name="menu_option_save_map">Save Map</string>
+    <string name="menu_map_save">Save</string>
+    <string name="menu_map_share">Share</string>
+    <string name="menu_toggle_view">Satellite</string>
+    <string name="menu_option_refresh">Refresh</string>
+
+    <!-- Settings -->
+
+    <string name="settings_language_title">Language</string>
+    <string name="settings_language_detail">Choose language</string>
+    <string name="settings_language_button">Choose</string>
+    <string name="settings_sync_title">Synchronize</string>
+    <string name="settings_sync_detail">Synchronize data with the Tigatrapp server to receive new missions and the latest Tigatrapp news.</string>
+    <string name="settings_sync_button">Sync.</string>
+    <string name="settings_syncing">Synchronizing data.</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="sample_my_locations">Sample my locations</string>
+    <string name="sampling_is_off">Location sampling is off</string>
+    <string name="sampling_is_on">Location sampling is on</string>
+
+    <!-- Misc -->
+
+    <string name="added_current_loc">Added current location.</string>
+    <string name="refresh">Refresh</string>
+    <string name="report_deleted">Report deleted</string>
+    <string name="edit">Edit</string>
+    <string name="edit_title_adult">Adult Mosquito</string>
+    <string name="edit_title_site">Breeding Site</string>
+    <string name="cd_help_icon">Help Icon</string>
+    <string name="open">Open</string>
+    <string name="spinner_prompt">Select Response</string>
+    <string name="spinner_nothing_selected">Nothing selected</string>
+    <string name="help">Help</string>
+    <string name="photo_credit_gallery">Photo by R. Eritja (www.eritja.com)</string>
+    <string name="photo_credit">Fotografies de R. Eritja (www.eritja.com)</string>
+    <string name="nolocnogps_alert">Your locatioin cannot be detected because GPS and network receivers are both off. Please activate them or choose a location on the map.</string>
+    <string name="progtitle_report">Enviant</string>
+    <string name="nolocation_alert_report">Your location has not yet been detected. Please wait a few more seconds and try again or else select location from map..</string>
+    <string name="upload_error_report">Transmission error. Your data has been saved on the device and will be sent later. Thank you!</string>
+    <string name="offline_report">No internet connection. Your report will be sent automatically when there is a connection available. Thank you!</string>
+    <string name="about">About</string>
+    <string name="add_note">If you want, you can write a message here for the research team. For example, you can describe the  mosquito in more detail.</string>
+    <string name="button_submit_CD">Button for sending report to research center</string>
+    <string name="cancel">Cancel</string>
+    <string name="ceab_CD">CEAB logo</string>
+    <string name="data_saved">Data saved as </string>
+    <string name="data_SD_error">SD card error</string>
+    <string name="data_SD_unavailable">SD card not available – data cannot be saved.</string>
+    <string name="dipsalut_CD">Dipsalut logo</string>
+    <string name="dontknow">Not sure</string>
+    <string name="fecyt_CD">FECYT logo</string>
+    <string name="funded_by">Financed by:</string>
+    <string name="funding_and_support">Financing and Support</string>
+    <string name="gallery">Image Gallery</string>
+    <string name="GPL">View GPL</string>
+    <string name="gpl_heading">GPL</string>
+    <string name="LGPL">View LGPL</string>
+    <string name="license">License</string>
+    <string name="mailing_spec_title">Send sample</string>
+    <string name="movelab">MoveLab\nCentre d\'Estudis Avançats de Blanes (CEAB-CSIC)</string>
+    <string name="movelab_address1">C/ d\'accés a la Cala St. Francesc, 14</string>
+    <string name="movelab_address2">Blanes. Girona. E-17300</string>
+    <string name="movelab_banner_CD">MoveLab logo</string>
+    <string name="no">No</string>
+    <string name="noGPSnoNetAlert">Your GPS and network receivers are off so it Is not possible to detect your location. Activate them now?</string>
+    <string name="notes_title">Message</string>
+    <string name="ok">OK</string>
+    <string name="project_email">info@atrapaeltigre.com</string>
+    <string name="project_website">http://atrapaeltigre.com/</string>
+    <string name="report_sent">If you select OK, your report will be sent to the lab.</string>
+    <string name="report_sent_confirmation">Report sent. Thank you!</string>
+    <string name="reportGallery_CD">Image gallery button</string>
+    <string name="saved_image_prefix">myMap</string>
+    <string name="scm_CD">SCM logo</string>
+    <string name="send_spec_text">Will you send your mosquito by post to the lab?</string>
+    <string name="share_with">Share</string>
+    <string name="submit">Send</string>
+    <string name="supported_by">With support from:</string>
+    <string name="q3_headthorax_text">Tiger  mosquitoes have a white stripe on the head and thorax.</string>
+    <string name="type_here">Use this space to include a note or comments if necessary.</string>
+    <string name="view_gpl_english">View Official Version of GPL</string>
+    <string name="yes">Yes</string>
+    <string name="your_report_id_is">"Your report ID is: "</string>
+    <string name="photo_credits">The photographs in Tigatrapp were provided by R. Eritja (www.eritja.com).</string>
+    <string name="copyright">
+<![CDATA[
+<p>Copyright &#169; 2013, 2014 John R.B. Palmer, Aitana Oltra, Joan Garriga ansd Frederic Bartumeus</p>
+    ]]>
+    </string>
+
+</resources>

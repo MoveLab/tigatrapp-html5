@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Tigatrapp
+ * Copyright (C) 2013, 2014  John R.B. Palmer, Aitana Oltra, Joan Garriga, and Frederic Bartumeus 
+ * Contact: info@atrapaeltigre.com
+ * 
+ * This file is part of Tigatrapp.
+ * 
+ * Tigatrapp is free software: you can redistribute it and/or modify 
+ * it under the terms of the GNU General Public License as published by 
+ * the Free Software Foundation, either version 3 of the License, or (at 
+ * your option) any later version.
+ * 
+ * Tigatrapp is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along 
+ * with Tigatrapp.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources>
+
+    <!-- Intro and Consent -->
+    <string name="consent_button_label">He leído y acepto las condiciones de uso</string>
+    <string name="decline_button_label">No estoy de acuerdo</string>
+
+    <!-- Gallery -->
+    <string-array name="gallery_array">
+        <item>Hembra de mosquito tigre. Sólo los mosquitos que: 1) son pequeños, 
+        negros y con rayas blancas, 2) tienen una raya blanca en la cabeza y en el tórax y 3) tienen  
+        rayas blancas en el abdomen y en 
+        las patas son mosquito tigre. Hay otros 
+        insectos parecidos, ¡no los confundas!</item>
+        <item>Hembra de mosquito tigre. Observa las rayas en el abdomen. 
+           Recuerda que el mosquito tigre es muy pequeño, 
+           no mide más de 5 mm (con patas incluidas, aproximadamente la mitad de una moneda de 1 céntimo).</item>
+        <item>Hembra de mosquito tigre preparada para picar. 
+              Observa la raya blanca en la cabeza y en el tórax y las rayas en las patas.</item>
+        <item>Hembra de mosquito tigre picando. 
+        Observa la característica raya blanca en la cabeza y en el tórax.</item>
+        <item>Hembra de mosquito tigre picando. 
+        Observa la característica raya blanca en la cabeza y en el tórax.</item>
+        <item>Dos hembras de mosquito tigre picando. Recuerda que sólo pican las hembras. 
+        En el caso del mosquito tigre, acostumbran a hacerlo durante el día (y no cuando oscurece) y normalmente 
+        pican en las piernas.</item>
+        <item>Hembra de mosquito tigre picando. La sangre que acumula en el abdomen 
+        servirá para generar una puesta de huevos.</item>
+        <item>Puesta de huevos de mosquito tigre. Observa el color oscuro y la forma alargada. 
+        Los huevos son tan pequeños que son casi invisibles a simple vista. 
+        Recuerda que el mosquito tigre pone los huevos en recipientes pequeños, en paredes  
+        secas cerca de agua estancada y sucia.</item>
+        <item>Larvas (más alargadas) y pupas (más redondeadas) de mosquito tigre. Observa que son acuáticas. 
+        Las larvas emergen de los huevos cuando éstos quedan cubiertos de agua y con el tiempo mudan a pupas.</item>
+        <item>Larvas (más alargadas) y pupas (más redondeadas) de mosquito tigre. 
+        Recuerda evitar tener pequeñas acumulaciones de agua en casa.</item>
+        <item>Dos pupas de mosquito tigre. En esta fase se produce la metamorfosis, 
+        y el mosquito adulto emerge de la pupa hacia el medio aéreo.</item>
+    </string-array>
+    <!-- Toasts -->
+    <string name="toast_report_before_submitting_site">Para enviar este lugar de cría:</string>
+    <string name="toast_report_before_submitting_adult">Para enviar este avistamiento de adulto:</string>
+    <string name="toast_complete_checklist">- Completa descripción</string>
+    <string name="toast_specify_location">- Especifica posición</string>
+    <string name="toast_attach_photo">- Adjunta imagen</string>
+
+    <!-- Switchboard -->
+    <string name="dataMap_CD">Mis datos</string>
+    <string name="switchboard_button_text_report">ENVIA</string>
+    <string name="switchboard_button_text_sites">LUGAR DE CRIA</string>
+    <string name="switchboard_button_text_adult">MOSQUITO TIGRE</string>
+    <string name="switchboard_button_text_map">MI MAPA</string>
+    <string name="switchboard_button_text_gallery">GALERIA</string>
+
+    <!-- activity labels -->
+    <string name="activity_label_report_editing">Tigatrapp: Edita informe</string>
+    <string name="activity_label_report_new">Tigatrapp: Nuevo informe</string>
+    <string name="activity_label_map">Tigatrapp: Mi Mapa</string>
+    <string name="activity_label_gallery">Tigatrapp: Galeria</string>
+
+    <!-- Reports -->
+    <string name="checklist_label_editing">Descripción*</string>
+    <string name="location_label_editing">Localización*</string>
+    <string name="photo_check_label_editing">Imágenes</string>
+    <string name="note_check_label_editing">Nota</string>
+    <string name="report_title_adult">Mosquito tigre</string>
+    <string name="report_title_site">Lugar de cría</string>
+    <string name="checklist_label">Completa descripción*</string>
+    <string name="location_label">Añade localización*</string>
+    <string name="location_current_label">Utiliza GPS</string>
+    <string name="location_select_label">Selecciona en el mapa</string>
+    <string name="location_current_label_button">Actual</string>
+    <string name="location_select_label_button">Señala</string>
+    <string name="location_menu_title">Utiliza posición actual o señala posición en el mapa</string>
+    <string name="photo_check_label">Adjunta imágenes</string>
+    <string name="note_check_label">Añade nota</string>
+    <string name="update">Actualiza</string>
+    <string name="created_on">Enviado:</string>
+    <string name="delete_report_warning">¿Elimina informe?</string>
+    <string name="word_report">Informe</string>
+    <string name="photo_label">Imágenes</string>
+    <string name="photo_label_star">Imágenes*</string>
+    <string name="site_report_q1">Tipo de lugar de cría</string>
+    <string name="site_report_q2">¿Contiene agua?</string>
+    <string name="site_report_q3">¿Contiene larvas o pupas de mosquito (de cualquier especie)?</string>
+    <string name="adult_report_q3">¿Tiene rayas blancas en el abdomen y en las patas?</string>
+    <string name="q3_headthorax_text">El mosquito tigre tiene una raya blanca en la cabeza y en el tórax. Evita enviar datos de mosquitos que no sean tigre.</string>
+    <string name="q2_abdomenlegs_text">El mosquito tigre tiene rayas blancas en el abdomen y en las patas. Evita enviar datos de mosquitos que no sean tigre.</string>
+    <string name="identifying_mosquitoes_title">Descripción del mosquito</string>
+    <string name="confirmation_q1_adult_sizecolor">¿Es pequeño y negro con rayas blancas?</string>
+    <string name="q1_sizecolor_text">El mosquito tigre es pequeño y negro con rayas blancas. Normalmente es activo sólo de día y acostumbra a picar en las piernas. Evita enviar datos de mosquitos que no sean tigre.</string>
+    <string name="adult_report_help_html">
+<![CDATA[
+
+<p><b>AYUDA:</b><br/>
+<b>¿Crees que has encontrado un mosquito tigre? Responde el informe y envía los datos. Es necesario completar los campos con asterisco (*).</b>
+</p>
+<p>
+<ul>
+<li><b>Descripción</b>: responde el formulario, te ayudará a saber si es un mosquito tigre y facilitará la interpretación de los datos.</li> 
+<br/>
+<li><b>Localización</b>: elige posición actual si el mosquito lo has atrapado en el lugar donde se encuentra el teléfono, o señala la posición en el mapa si lo has encontrado en otro lugar. Activa el GPS si quieres que la posición de tu hallazgo sea más precisa.</li>  
+<br/>
+<li><b>Imágenes</b>: haz una foto o adjunta una foto de tu mosquito que hayas hecho con otro dispositivo.</li>
+<br/>
+<li><b>Notas</b>: si quieres, describe mejor tu hallazgo.</li>
+</ul>
+</p> 
+<p>Una vez enviado, podrás consultar y editar el informe en tu mapa. Los datos que envíes serán publicados en el mapa del mosquito tigre en la web <a href="www.atrapaeltigre.com">www.atrapaeltigre.com</a>.</p>        
+   ]]>
+    </string>
+    <string name="site_report_help_html">
+<![CDATA[
+<p><b>AYUDA:</b><br/>
+<b>¿Has encontrado un lugar público donde crees que el mosquito tigre puede criar? Responde el informe y envía los datos. Es necesario completar los campos con asterisco (*).</b>
+</p>
+<ul> 
+<li><b>Descripción</b>: responde el formulario para facilitar la interpretación de los datos.</li> 
+<br/>
+<li><b>Localización</b>: elige posición actual si el lugar de cría se encuentra en el lugar donde tienes el teléfono, o señala la posición en el mapa si lo has encontrado en otro lugar. Activa el GPS si quieres que la posición de tu hallazgo sea más precisa.</li>  
+<br/>
+<li><b>Imágenes</b>: haz una foto o adjunta una foto del lugar de cría hecha con otro dispositivo.</li> 
+<br/>
+<li><b>Notas</b>: si quieres, describe mejor tu hallazgo.</li>
+</ul> 
+</p>
+<p>Una vez enviado, podrás consultar y editar el informe en tu mapa. Los datos que envíes serán publicados en el mapa del mosquito tigre en la web www.atrapaeltigre.com.</p>        
+       ]]>
+    </string>
+    <string name="site_report_item_help_1">
+<![CDATA[  
+<p>Las larvas y pupas de mosquito tigre viven en depósitos o recipientes pequeños, con agua estancada o sucia (sin peces). Ejemplos: sumideros, fuentes, depósitos, pozos, cubos, etc.</p> 
+<p>El mosquito tigre no cría en playas, ríos, lagos, humedales o estanques. Las larvas que encuentres allí no son de mosquito tigre.</p>    
+       ]]>
+    </string>
+    <string name="site_report_item_help_2">
+<![CDATA[      
+<p>Las larvas y las pupas necesitan agua estancada con materia orgánica (alimento) para vivir. Evita tener pequeñas acumulaciones de agua en tu casa para combatir el mosquito tigre.</p> 
+]]>
+    </string>
+    <string name="site_report_item_help_3">
+<![CDATA[      
+<p>Las larvas de mosquito son muy fáciles de reconocer. Son alargadas, más pequeñas que una moneda de 1 céntimo y nadan haciendo piruetas. Se mueven mucho y suben a la superficie del agua para respirar.</p>
+
+<p>Si encuentras larvas de mosquito en un recipiente (de cualquier especie), has encontrado un lugar potencial de cría de mosquito tigre. Si evitas tener pequeñas acumulaciones de agua en tu casa estarás combatiendo el mosquito tigre.</p> 
+       ]]>
+    </string>
+    <string name="embornals">Sumideros</string>
+    <string name="fonts">Fuentes</string>
+    <string name="basses">Pequeñas balsas artificiales</string>
+    <string name="bidons">Bidones</string>
+    <string name="pous">Pozos</string>
+    <string name="altres">Otros</string>
+    <string name="report_checklist_title_adult">Descripción del mosquito</string>
+    <string name="report_checklist_title_site">Descripción del lugar de cría</string>
+
+    <!-- View Report -->
+    <string name="return_to_map">Atrás</string>
+    <string name="delete_report">Elimina</string>
+    <string name="edit_report">Edita</string>
+    <string name="report_not_saved_warning">El informe no se ha guardado. ¿Quieres salir igualmente?</string>
+    <string name="exit_question">¿Salir?</string>
+    <string name="no_note_attached">Ninguna nota adjunta</string>
+    <string name="no_photo_attached">Ninguna imagen adjunta</string>
+    <string name="checklist_tab_title">Descripción</string>
+    <string name="photos_tab_title">Imágenes</string>
+    <string name="notes_tab_title">Notas</string>
+    <string name="view_report_title_adult">Hallazgo de mosquito tigre</string>
+    <string name="view_report_title_site">Lugar de cría</string>
+
+    <!-- Photo Selector -->
+    <string name="photo_selector_title">Añade imágenes</string>
+    <string name="photo_selector_take_photo_button">Haz foto</string>
+    <string name="photo_selector_attach_photo_button">Adjunta foto</string>
+    <string name="photo_selector_remove_attachment">Elimina adjunto</string>
+    <string name="photo_selector_remove_this_photo">Elimina</string>
+    <string name="photo_selector_from_thisreport">de este informe</string>
+    <string name="photo_selector_remove_button_label">Elimina</string>
+
+    <!-- RSS Feeds -->
+    <string name="rss_internet_connection_warning">Sin conexión a internet.\n\nPara ver el contenido, conéctate y selecciona \'actualiza\' en el menú</string>
+    <string name="rss_title_tigatrapp">Noticias de AtrapaelTigre.com</string>
+
+    <!-- Tasks -->
+    <string name="task_list_title">Misiones</string>
+    <string name="task_list_pending">Pendientes</string>
+    <string name="task_list_completed">Completadas</string>
+    <string name="delete_task_from_list_question">Elimina misión de la lista</string>
+    <string name="delete">Elimina</string>
+    <string name="new_mission">Nueva misión Tigatrapp!</string>
+    <string name="mission_button_left_survey">Envía ahora</string>
+    <string name="mission_button_left_url">Visita la página</string>
+    <string name="mission_button_middle">Envía más tarde</string>
+    <string name="mission_button_right">Elimina misión</string>
+    <string name="mission_button_mark_complete">Misión realizada</string>
+    <string name="toast__mission_already_complete">Esta misión ya ha sido realizada. ¡Gracias!</string>
+    <string name="toast_mission_expired">Esta misión ha expirado.</string>
+
+    <!-- Menu -->
+    <string name="menu_option_task_list">Misiones</string>
+    <string name="menu_option_tigatrapp_news">Noticias</string>
+    <string name="menu_option_settings">Ajustes</string>
+    <string name="menu_option_help">Ayuda</string>
+    <string name="menu_option_about">Sobre</string>
+    <string name="menu_option_share">Comparte</string>
+    <string name="menu_option_filter">Filtra</string>
+    <string name="menu_option_show_pending_tasks_only">Sólo misiones pendientes</string>
+    <string name="menu_option_show_all_tasks">Todas</string>
+    <string name="menu_option_map_type_label">Tipo de mapa</string>
+    <string name="menu_option_map_type_satellite">Imagen</string>
+    <string name="menu_option_map_type_street">Topográfico</string>
+    <string name="menu_option_share_map">Comparte mapa</string>
+    <string name="menu_option_save_map">Guarda mapa</string>
+    <string name="menu_map_save">Guarda</string>
+    <string name="menu_map_share">Comparte</string>
+    <string name="menu_toggle_view">Imagen</string>
+    <string name="menu_option_refresh">Actualiza</string>
+
+    <!-- Settings -->
+    <string name="settings_language_title">Idioma</string>
+    <string name="settings_language_detail">Selecciona idioma</string>
+    <string name="settings_language_button">Selecciona</string>
+    <string name="settings_sync_title">Sincroniza</string>
+    <string name="settings_sync_detail">Forzar conexión con servidor para enviar datos y descargar misiones</string>
+    <string name="settings_sync_button">Sinc.</string>
+    <string name="settings_syncing">Sincronizando datos</string>
+    <string name="on">Encendido</string>
+    <string name="off">Apagado</string>
+    <string name="sample_my_locations">Geolocalización</string>
+    <string name="sampling_is_off">Permitir envío de datos aproximados de mi localización en background</string>
+    <string name="sampling_is_on">Permitir envío de datos aproximados de mi localización en background</string>
+
+    <!-- Misc -->
+
+    <string name="added_current_loc">Posición actual guardada</string>
+    <string name="refresh">Actualiza</string>
+    <string name="report_deleted">Informe borrado</string>
+    <string name="edit">Edita</string>
+    <string name="edit_title_adult">Hallazgo de mosquito tigre</string>
+    <string name="edit_title_site">Lugar de cría</string>
+    <string name="cd_help_icon">Ayuda</string>
+    <string name="open">Abre</string>
+    <string name="spinner_prompt">Selecciona respuesta</string>
+    <string name="spinner_nothing_selected">Selecciona</string>
+    <string name="help">Ayuda</string>
+    <string name="photo_credit_gallery">Fotografía de R. Eritja (www.eritja.com)</string>
+    <string name="photo_credit">Fotografías de R. Eritja (www.eritja.com)</string>
+    <string name="nolocnogps_alert">No se ha podido detectar tu posición porque ni el GPS ni la ubicación por red móvil y/o Wi-Fi están activados. Actívalos o señala la posición en el mapa</string>
+    <string name="progtitle_report">Enviando</string>
+    <string name="nolocation_alert_report">No se ha podido detectar tu posición. Espera unos segundos y vuélvelo a intentar o señala la posición en el mapa</string>
+    <string name="upload_error_report">Error de envío. Tu informe se ha guardado en el móvil y se enviará más tarde. Gracias por participar</string>
+    <string name="offline_report">Sin conexión a internet. Tu informe se enviará automáticamente cuando vuelva la conexión. Gracias por participar</string>
+    <string name="about">Información</string>
+    <string name="add_note">Descripción o nota opcional para acompañar tu informe</string>
+    <string name="button_submit_CD">Botón para enviar tu informe al centro de investigación</string>
+    <string name="cancel">Anula</string>
+    <string name="ceab_CD">CEAB logo</string>
+    <string name="data_saved">Datos guardados como </string>
+    <string name="data_SD_error">Error al guardar el archivo en la tarjeta SD</string>
+    <string name="data_SD_unavailable">Tarjeta SD No Disponible – el archivo no se puede guardar</string>
+    <string name="dipsalut_CD">Dipsalut logo</string>
+    <string name="dontknow">No lo sé</string>
+    <string name="fecyt_CD">FECYT logo</string>
+    <string name="funded_by">Financiado por: </string>
+    <string name="funding_and_support">Financiación y Apoyo</string>
+    <string name="gallery">Galería de Imágenes</string>
+    <string name="GPL">Ver GPL</string>
+    <string name="gpl_heading">GPL</string>
+    <string name="LGPL">Ver LGPL</string>
+    <string name="license">Licencia</string>
+    <string name="mailing_spec_title">Envía una muestra</string>
+    <string name="movelab">MoveLab\nCentro de Estudios Avanzados de Blanes (CEAB-CSIC)</string>
+    <string name="movelab_address1">C/ d\'accés a la Cala St. Francesc, 14</string>
+    <string name="movelab_address2">Blanes. Girona. E-17300</string>
+    <string name="movelab_banner_CD">MoveLab logo</string>
+    <string name="no">No</string>
+    <string name="noGPSnoNetAlert">El GPS y la recepción de red telefónica están desactivados. No se te puede localizar si no tienes al menos uno de ellos activado. ¿Quieres activarlos?</string>
+    <string name="notes_title">Mensaje</string>
+    <string name="ok">OK</string>
+    <string name="project_email">info@atrapaeltigre.com</string>
+    <string name="project_website">http://atrapaeltigre.com/</string>
+    <string name="report_sent">Si clicas OK, tus datos se enviarán al grupo de investigación responsable del proyecto. Parte de los datos se harán públicos en el mapa web del mosquito tigre en la pàgina web www.atrapaeltigre.com</string>
+    <string name="report_sent_confirmation">Gracias por participar</string>
+    <string name="reportGallery_CD">Botón para acceder a la galería de imágenes del mosquito tigre</string>
+    <string name="saved_image_prefix">MiMapa</string>
+    <string name="scm_CD">SCM logo</string>
+    <string name="send_spec_text">¿Enviarás tu mosquito por correo postal al centro de investigación?</string>
+    <string name="share_with">Comparte</string>
+    <string name="submit">Envía</string>
+    <string name="supported_by">Con el apoyo de:</string>
+    <string name="confirmation_q2_adult_headthorax">¿Tiene una raya blanca en la cabeza y en el tórax?</string>
+    <string name="type_here">Utiliza este espacio para añadir una nota o comentario si es necesario</string>
+    <string name="view_gpl_english">Ver GPL versión oficial</string>
+    <string name="yes">Sí</string>
+    <string name="your_report_id_is">"El código de tu Tigre hallazgo es: "</string>
+    <string name="photo_credits">Las fotografías de la App Tigatrapp han sido cedidas por R. Eritja (www.eritja.com).</string>
+    <string name="copyright">
+<![CDATA[
+<p>Copyright &#169; 2013, 2014 John R.B. Palmer, Aitana Oltra, Joan Garriga y Frederic Bartumeus</p>
+    ]]>
+    </string>
+
+</resources>
