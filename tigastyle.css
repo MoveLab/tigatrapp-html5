@@ -12,7 +12,7 @@
 }
 
 #mapFrame {
-    height: 87%;        // total - header
+    height: 87%; // total-header
     width: 100%;
     position: absolute;
     overflow: hidden;
