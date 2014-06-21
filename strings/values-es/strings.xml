@@ -17,7 +17,10 @@
  * See the GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License along 
- * with Tigatrapp.  If not, see <http://www.gnu.org/licenses/>.
+ * with Tigatrapp.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
 -->
 <resources>
 
@@ -319,5 +322,12 @@
 <p>Copyright &#169; 2013, 2014 John R.B. Palmer, Aitana Oltra, Joan Garriga y Frederic Bartumeus</p>
     ]]>
     </string>
+
+
+    <!-- HTML5 -->
+    <string name="html5_home">Inicio</string>
+
+    <string name="html5_gallery_prev">Anterior</string>
+    <string name="html5_gallery_next">Siguiente</string>
 
 </resources>

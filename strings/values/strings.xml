@@ -320,8 +320,14 @@
     <string name="photo_credits">The photographs in Tigatrapp were provided by R. Eritja (www.eritja.com).</string>
     <string name="copyright">
 <![CDATA[
-<p>Copyright &#169; 2013, 2014 John R.B. Palmer, Aitana Oltra, Joan Garriga ansd Frederic Bartumeus</p>
+<p>Copyright &#169; 2013, 2014 John R.B. Palmer, Aitana Oltra, Joan Garriga and Frederic Bartumeus</p>
     ]]>
     </string>
+
+    <!-- HTML5 -->
+    <string name="html5_home">Home</string>
+
+    <string name="html5_gallery_prev">Previous</string>
+    <string name="html5_gallery_next">Next</string>
 
 </resources>
