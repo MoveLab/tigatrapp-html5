@@ -1,7 +1,8 @@
 // An attempt to use Android string resources
 // based on http://www.webgeekly.com/tutorials/jquery/how-to-make-your-site-multilingual-using-xml-and-jquery/
 
-// Just add the string name as class identifier to whatever object that must be localized.
+// Just add "localizable" as class identifier to whatever object that must be localized,
+// and then assign the string name to the custom data-lclstring attribute.
 
 $(function() {
     var langCode = '-ca'; // dummy variable, will use URL
@@ -13,7 +14,16 @@ $(function() {
             $(xml).find('string').each(function() {
                 var name = $(this).attr('name');
                 var text = $(this).text();
-                $("."+name).html(text);
+
+                // Using plain classes
+                //$("."+name).html(text);
+
+                // Using custom data- attributes
+                $(".localizable").map(function() {
+                    if($(this).data("lclstring")==name) {
+                        $(this).html(text);
+                    }
+                });
             });
         }
     });
