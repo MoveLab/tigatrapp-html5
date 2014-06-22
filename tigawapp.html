@@ -75,30 +75,93 @@ For production version, add manifest and use:
 	</div><!-- /header -->
 	<div role="main" class="ui-content">
 		<!--To be added-->
-        <div class="ui-grid-d">
-            <div class="ui-block-a"><h2 class="localizable" data-lclstring="report_title_adult"></h2></div>
-            <div class="ui-block-b">
-                <a href="#adultHelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
-                <div data-role="popup" id="adultHelpPopup">
-                    <p class="localizable" data-lclstring="adult_report_help_html"></p>
+        <form action="#" method="get">     <!-- Adult report form -->
+            <div class="ui-grid-d">
+                <div class="ui-block-a"><h2 class="localizable" data-lclstring="report_title_adult"></h2></div>
+                <div class="ui-block-b">
+                    <a href="#adultHelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
+                    <div data-role="popup" id="adultHelpPopup">
+                        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                        <p class="localizable" data-lclstring="adult_report_help_html"></p>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
-
-        <form action="#" method="get">
             <div data-role="fieldcontain">
                 <input type="checkbox" name="checkbox-description" id="checkbox-description" class="custom" />
-                <label for="checkbox-description" class="localizable" data-lclstring="checklist_label_editing"></label>
+                <label for="checkbox-description" class="localizable" data-lclstring="checklist_label"></label>
+            </div>
+
+            <div data-role="fieldcontain">  <!-- Description: First question -->
+                <label for="select-description-0" class="select localizable" data-lclstring="confirmation_q1_adult_sizecolor"></label>
+                <a href="#description0HelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
+                <div data-role="popup" id="description0HelpPopup" style="max-width:300px;">
+                    <p class="localizable" data-lclstring="q1_sizecolor_text"></p>
+                    <img class="popphoto" src="images/checklist_image_adult_1.jpg"/>
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                </div>
+                <select name="select-description-0" id="select-description-0">
+                    <option value="yes" class="localizable" data-lclstring="yes"></option>
+                    <option value="no" class="localizable" data-lclstring="no"></option>
+                    <option value="dontknow" class="localizable" data-lclstring="dontknow"></option>
+                </select>
+            </div>
+
+            <div data-role="fieldcontain">  <!-- Description: Second question -->
+                <label for="select-description-1" class="select localizable" data-lclstring="confirmation_q2_adult_headthorax"></label>
+                <a href="#description1HelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
+                <div data-role="popup" id="description1HelpPopup" style="max-width:300px;">
+                    <p class="localizable" data-lclstring="q3_headthorax_text"></p>
+                    <img class="popphoto" src="images/checklist_image_adult_2.jpg"/>
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                </div>
+                <select name="select-description-1" id="select-description-1" >
+                    <option value="yes" class="localizable" data-lclstring="yes"></option>
+                    <option value="no" class="localizable" data-lclstring="no"></option>
+                    <option value="dontknow" class="localizable" data-lclstring="dontknow"></option>
+                </select>
+            </div>
+            <div data-role="fieldcontain"> <!-- Description: Third question -->
+                <label for="select-description-2" class="select localizable" data-lclstring="adult_report_q3"></label>
+                <a href="#description2HelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
+                <div data-role="popup" id="description2HelpPopup" style="max-width:300px;">
+                    <p class="localizable" data-lclstring="q2_abdomenlegs_text"></p>
+                    <img class="popphoto" src="images/checklist_image_adult_3.jpg"/>
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                </div>
+                <select name="select-description-2" id="select-description-2">
+                    <option value="yes" class="localizable" data-lclstring="yes"></option>
+                    <option value="no" class="localizable" data-lclstring="no"></option>
+                    <option value="dontknow" class="localizable" data-lclstring="dontknow"></option>
+                </select>
+            </div>
+
+            <div data-role="fieldcontain">
 
                 <input type="checkbox" name="checkbox-location" id="checkbox-location" class="custom" />
-                <label for="checkbox-location" class="localizable" data-lclstring="location_label_editing"></label>
+                <label for="checkbox-location" class="localizable" data-lclstring="location_label"></label>
+            </div>
 
+            <div data-role="fieldcontain">
                 <input type="checkbox" name="checkbox-photos" id="checkbox-photos" class="custom" />
-                <label for="checkbox-photos" class="localizable" data-lclstring="photo_check_label"></label>
+                <label for="checkbox-photos" class="localizable" data-lclstring="photo_label"></label>
+            </div>
 
+            <div data-role="fieldcontain">
                 <input type="checkbox" name="checkbox-notes" id="checkbox-notes" class="custom" />
                 <label for="checkbox-notes" class="localizable" data-lclstring="note_check_label"></label>
+
+                <label for="checkbox-notes-text" class="localizable" data-lclstring="type_here"></label>
+                <input type="text" name="checkbox-notes-text" id="checkbox-notes-text" value="" />
+            </div>
+
+
+            <div class="ui-body ui-body-b">
+                <fieldset class="ui-grid-a">
+                    <div class="ui-block-a"><button type="submit">Cancel</button></div>
+                    <div class="ui-block-b"><button type="submit">Submit</button></div>
+                </fieldset>
             </div>
         </form>
 	</div><!-- /content -->
@@ -112,16 +175,27 @@ For production version, add manifest and use:
 	</div><!-- /header -->
 	<div role="main" class="ui-content">
 		<!--To be added -->
-        <div class="ui-grid-d">
-            <div class="ui-block-a"><h2 class="localizable" data-lclstring="report_title_site"></h2></div>
-            <div class="ui-block-b">
-                <a href="#siteHelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
-                <div data-role="popup" id="siteHelpPopup">
-                    <p class="localizable" data-lclstring="site_report_help_html"></p>
+
+        <form action="#" method="get">     <!-- Adult report form -->
+            <div class="ui-grid-d">
+                <div class="ui-block-a"><h2 class="localizable" data-lclstring="report_title_site"></h2></div>
+                <div class="ui-block-b">
+                    <a href="#siteHelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
+                    <div data-role="popup" id="siteHelpPopup">
+                        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                        <p class="localizable" data-lclstring="site_report_help_html"></p>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
+            <div class="ui-body ui-body-b">
+                <fieldset class="ui-grid-a">
+                    <div class="ui-block-a"><button type="submit">Cancel</button></div>
+                    <div class="ui-block-b"><button type="submit">Submit</button></div>
+                </fieldset>
+            </div>
+        </form>
 	</div><!-- /content -->
 </div><!-- /page -->
 
@@ -158,5 +232,8 @@ For production version, add manifest and use:
 		</div>
 	</div><!-- /content -->
 </div><!-- /page -->
+
+<!-- Popups -->
+
 </body>
 </html>	
