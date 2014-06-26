@@ -26,6 +26,7 @@ For production version, add manifest and use:
 		<script src="jquery.mobile-1.4.2.min.js"></script>
 		<script src="js/gallery.js"></script>
         <script src="js/localization.js"></script>
+        <script src="js/formmanager.js"></script>
 	</head>
 <body>
 <!-- Start of first page -->
@@ -91,36 +92,7 @@ For production version, add manifest and use:
             <div class="ui-field-contain" >      <!-- Description checkbox -->
                 <input type="checkbox" name="checkbox-description" id="checkbox-description" class="custom" />
                 <label for="checkbox-description" class="localizable" data-lclstring="checklist_label"></label>
-                <script type="text/javascript">
-                    $("#report_adult").bind('pageinit', function() {
-                        toggleQuestions($("#checkbox-description"));
-                    });              // on page load, hide questions);
 
-
-                    $("#checkbox-description").on('click', function() {
-                        toggleQuestions($(this));
-                    });
-
-
-                    function toggleQuestions(checkbox) {
-                        if(checkbox.is(':checked')) {
-                            $("#select-description-0").selectmenu("enable");
-                            $("#select-description-1").selectmenu("enable");
-                            $("#select-description-2").selectmenu("enable");
-                            $("#description-0").show();
-                            $("#description-1").show();
-                            $("#description-2").show();
-                        }
-                        else {
-                            $("#select-description-0").selectmenu("disable");
-                            $("#select-description-1").selectmenu("disable");
-                            $("#select-description-2").selectmenu("disable");
-                            $("#description-0").hide();
-                            $("#description-1").hide();
-                            $("#description-2").hide();
-                        }
-                    }
-                </script>
             </div>
 
             <div class="ui-field-contain"  id="description-0">  <!-- Description: First question -->
@@ -131,7 +103,7 @@ For production version, add manifest and use:
                     <img class="popphoto" src="images/checklist_image_adult_1.jpg"/>
                     <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                 </div>
-                <select name="select-description-0" id="select-description-0" disabled>
+                <select name="select-description-0" id="select-description-0" >
                     <option value="yes" class="localizable" data-lclstring="yes"></option>
                     <option value="no" class="localizable" data-lclstring="no"></option>
                     <option value="dontknow" class="localizable" data-lclstring="dontknow"></option>
@@ -146,7 +118,7 @@ For production version, add manifest and use:
                     <img class="popphoto" src="images/checklist_image_adult_2.jpg"/>
                     <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                 </div>
-                <select name="select-description-1" id="select-description-1" disabled>
+                <select name="select-description-1" id="select-description-1" >
                     <option value="yes" class="localizable" data-lclstring="yes"></option>
                     <option value="no" class="localizable" data-lclstring="no"></option>
                     <option value="dontknow" class="localizable" data-lclstring="dontknow"></option>
@@ -160,7 +132,7 @@ For production version, add manifest and use:
                     <img class="popphoto" src="images/checklist_image_adult_3.jpg"/>
                     <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                 </div>
-                <select name="select-description-2" id="select-description-2" disabled>
+                <select name="select-description-2" id="select-description-2" >
                     <option value="yes" class="localizable" data-lclstring="yes"></option>
                     <option value="no" class="localizable" data-lclstring="no"></option>
                     <option value="dontknow" class="localizable" data-lclstring="dontknow"></option>
@@ -176,24 +148,6 @@ For production version, add manifest and use:
             <div class="ui-field-contain" >      <!-- Photos checkbox -->
                 <input type="checkbox" name="checkbox-photos" id="checkbox-photos" class="custom" />
                 <label for="checkbox-photos" class="localizable" data-lclstring="photo_label"></label>
-                <script type="text/javascript">
-                    $("#report_adult").bind('pageinit', function() {
-                        togglePhoto($("#checkbox-photos"));
-                    });
-
-                    $("#checkbox-photos").on('click', function() {
-                        togglePhoto($(this));
-                    });
-
-                    function togglePhoto(photos) {
-                        if(photos.is(':checked')) {
-                            $("#attachment").show();
-                        }
-                        else {
-                            $("#attachment").hide();
-                        }
-                    };
-                </script>
 
                 <input type="file" id="attachment" name="attachment" />
             </div>
@@ -201,29 +155,10 @@ For production version, add manifest and use:
             <div class="ui-field-contain" >      <!-- Notes checkbox -->
                 <input type="checkbox" name="checkbox-notes" id="checkbox-notes" class="custom" />
                 <label for="checkbox-notes" class="localizable" data-lclstring="note_check_label"></label>
-                <script type="text/javascript">
-                    $("#report_adult").bind('pageinit', function() {       // On page load, hide notes
-                        toggleNotes($("#checkbox-notes"));
-                    });
-                    $("#checkbox-notes").on('click', function() {
-                        toggleNotes($(this));
-                    });
-
-                    function toggleNotes(notes) {
-                        if(notes.is(':checked')) {
-                            $("#checkbox-notes-text").textinput("enable");
-                            $("#notes").show();
-                        }
-                        else {
-                            $("#checkbox-notes-text").textinput("disable");
-                            $("#notes").hide();
-                        }
-                    };
-                </script>
             </div>
             <div class="ui-field-contain"  id="notes">
                 <label for="checkbox-notes-text" class="localizable" data-lclstring="type_here"></label>
-                <input type="text" name="checkbox-notes-text" id="checkbox-notes-text" value="" disabled/>
+                <input type="text" name="checkbox-notes-text" id="checkbox-notes-text" value="" />
             </div>
 
 
@@ -263,36 +198,6 @@ For production version, add manifest and use:
             <div class="ui-field-contain" >      <!-- Description checkbox -->
                 <input type="checkbox" name="checkbox-site-description" id="checkbox-site-description" class="custom" />
                 <label for="checkbox-site-description" class="localizable" data-lclstring="checklist_label"></label>
-                <script type="text/javascript">
-                    $("#report_site").bind('pageinit', function() {
-                        toggleQuestions($("#checkbox-site-description"));
-                    });              // on page load, hide questions);
-
-
-                    $("#checkbox-site-description").on('click', function() {
-                        toggleQuestions($(this));
-                    });
-
-
-                    function toggleQuestions(checkbox) {
-                        if(checkbox.is(':checked')) {
-                            $("#select-site-description-0").selectmenu("enable");
-                            $("#select-site-description-1").selectmenu("enable");
-                            $("#select-site-description-2").selectmenu("enable");
-                            $("#site-description-0").show();
-                            $("#site-description-1").show();
-                            $("#site-description-2").show();
-                        }
-                        else {
-                            $("#select-site-description-0").selectmenu("disable");
-                            $("#select-site-description-1").selectmenu("disable");
-                            $("#select-site-description-2").selectmenu("disable");
-                            $("#site-description-0").hide();
-                            $("#site-description-1").hide();
-                            $("#site-description-2").hide();
-                        }
-                    }
-                </script>
             </div>
 
             <div class="ui-field-contain"  id="site-description-0">  <!-- Description: First question -->
@@ -303,7 +208,7 @@ For production version, add manifest and use:
                     <img class="popphoto" src="images/checklist_image_sites_1.jpg"/>
                     <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                 </div>
-                <select name="select-site-description-0" id="select-site-description-0" disabled>
+                <select name="select-site-description-0" id="select-site-description-0" >
                     <option value="embornals" class="localizable" data-lclstring="embornals"></option>
                     <option value="fonts" class="localizable" data-lclstring="fonts"></option>
                     <option value="basses" class="localizable" data-lclstring="basses"></option>
@@ -320,7 +225,7 @@ For production version, add manifest and use:
                     <img class="popphoto" src="images/checklist_image_sites_2.jpg"/>
                     <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                 </div>
-                <select name="select-site-description-1" id="select-site-description-1" disabled>
+                <select name="select-site-description-1" id="select-site-description-1" >
                     <option value="yes" class="localizable" data-lclstring="yes"></option>
                     <option value="no" class="localizable" data-lclstring="no"></option>
                 </select>
@@ -333,7 +238,7 @@ For production version, add manifest and use:
                     <img class="popphoto" src="images/checklist_image_sites_3.jpg"/>
                     <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                 </div>
-                <select name="select-site-description-2" id="select-site-description-2" disabled>
+                <select name="select-site-description-2" id="select-site-description-2" >
                     <option value="yes" class="localizable" data-lclstring="yes"></option>
                     <option value="no" class="localizable" data-lclstring="no"></option>
                     <option value="dontknow" class="localizable" data-lclstring="dontknow"></option>
@@ -349,24 +254,6 @@ For production version, add manifest and use:
             <div class="ui-field-contain" >      <!-- Photos checkbox -->
                 <input type="checkbox" name="checkbox-site-photos" id="checkbox-site-photos" class="custom" />
                 <label for="checkbox-site-photos" class="localizable" data-lclstring="photo_label"></label>
-                <script type="text/javascript">
-                    $("#report_site").bind('pageinit', function() {
-                        togglePhoto($("#checkbox-site-photos"));
-                    });
-
-                    $("#checkbox-site-photos").on('click', function() {
-                        togglePhoto($(this));
-                    });
-
-                    function togglePhoto(photos) {
-                        if(photos.is(':checked')) {
-                            $("#site-attachment").show();
-                        }
-                        else {
-                            $("#site-attachment").hide();
-                        }
-                    };
-                </script>
 
                 <input type="file" id="site-attachment" name="site-attachment" />
             </div>
@@ -374,29 +261,11 @@ For production version, add manifest and use:
             <div class="ui-field-contain" >      <!-- Notes checkbox -->
                 <input type="checkbox" name="checkbox-site-notes" id="checkbox-site-notes" class="custom" />
                 <label for="checkbox-site-notes" class="localizable" data-lclstring="note_check_label"></label>
-                <script type="text/javascript">
-                    $("#report_site").bind('pageinit', function() {       // On page load, hide notes
-                        toggleNotes($("#checkbox-site-notes"));
-                    });
-                    $("#checkbox-site-notes").on('click', function() {
-                        toggleNotes($(this));
-                    });
 
-                    function toggleNotes(notes) {
-                        if(notes.is(':checked')) {
-                            $("#checkbox-site-notes-text").textinput("enable");
-                            $("#site-notes").show();
-                        }
-                        else {
-                            $("#checkbox-site-notes-text").textinput("disable");
-                            $("#site-notes").hide();
-                        }
-                    };
-                </script>
             </div>
             <div class="ui-field-contain"  id="site-notes">
                 <label for="checkbox-site-notes-text" class="localizable" data-lclstring="type_here"></label>
-                <input type="text" name="checkbox-site-notes-text" id="checkbox-site-notes-text" value="" disabled/>
+                <input type="text" name="checkbox-site-notes-text" id="checkbox-site-notes-text" value="" />
             </div>
 
 
