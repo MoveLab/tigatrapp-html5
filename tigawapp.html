@@ -27,6 +27,7 @@ For production version, add manifest and use:
 		<script src="js/gallery.js"></script>
         <script src="js/localization.js"></script>
         <script src="js/formmanager.js"></script>
+        <script src="js/uuid.js"></script>
 	</head>
 <body>
 <!-- Start of first page -->
@@ -36,6 +37,16 @@ For production version, add manifest and use:
 		<h1>Tigatrapp</h1>
 	</div><!-- /header -->
 
+    <script type="text/javascript">
+        // TODO: Ask for consent
+            if(localStorage.getItem("user_uuid")==null) {
+                console.log("Creating UUID");
+                localStorage["user_uuid"] = uuid.v4();
+            }
+            console.log("A user UUID exists");
+            console.log(localStorage.getItem("user_uuid"));
+        // TODO: Send to server
+    </script>
 	<div role="main" class="ui-content">
 
 <div class="switchboard-content-wrapper">
@@ -76,7 +87,7 @@ For production version, add manifest and use:
 	</div><!-- /header -->
 	<div role="main" class="ui-content">
 		<!--To be added-->
-        <form action="#" method="get">     <!-- Adult report form -->
+        <form id="adult_form" >     <!-- Adult report form -->
             <div class="ui-grid-d">
                 <div class="ui-block-a"><h2 class="localizable" data-lclstring="report_title_adult"></h2></div>
                 <div class="ui-block-b">
@@ -96,7 +107,7 @@ For production version, add manifest and use:
             </div>
 
             <div class="ui-field-contain"  id="description-0">  <!-- Description: First question -->
-                <label for="select-description-0" class="select localizable" data-lclstring="confirmation_q1_adult_sizecolor"></label>
+                <label id="label-select-description-0" for="select-description-0" class="select localizable" data-lclstring="confirmation_q1_adult_sizecolor"></label>
                 <a href="#description0HelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
                 <div data-role="popup" id="description0HelpPopup" style="max-width:300px;">
                     <p class="localizable" data-lclstring="q1_sizecolor_text"></p>
@@ -111,7 +122,7 @@ For production version, add manifest and use:
             </div>
 
             <div class="ui-field-contain"  id="description-1">  <!-- Description: Second question -->
-                <label for="select-description-1" class="select localizable" data-lclstring="confirmation_q2_adult_headthorax"></label>
+                <label id="label-select-description-1" for="select-description-1" class="select localizable" data-lclstring="confirmation_q2_adult_headthorax"></label>
                 <a href="#description1HelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
                 <div data-role="popup" id="description1HelpPopup" style="max-width:300px;">
                     <p class="localizable" data-lclstring="q3_headthorax_text"></p>
@@ -125,7 +136,7 @@ For production version, add manifest and use:
                 </select>
             </div>
             <div class="ui-field-contain"  id="description-2"> <!-- Description: Third question -->
-                <label for="select-description-2" class="select localizable" data-lclstring="adult_report_q3"></label>
+                <label id="label-select-description-2" for="select-description-2" class="select localizable" data-lclstring="adult_report_q3"></label>
                 <a href="#description2HelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
                 <div data-role="popup" id="description2HelpPopup" style="max-width:300px;">
                     <p class="localizable" data-lclstring="q2_abdomenlegs_text"></p>
@@ -181,7 +192,7 @@ For production version, add manifest and use:
 	<div role="main" class="ui-content">
 		<!--To be added -->
 
-        <form action="#" method="get">     <!-- Adult report form -->
+        <form id="site_form">     <!-- Site report form -->
             <div class="ui-grid-d">
                 <div class="ui-block-a"><h2 class="localizable" data-lclstring="report_title_site"></h2></div>
                 <div class="ui-block-b">
@@ -201,7 +212,7 @@ For production version, add manifest and use:
             </div>
 
             <div class="ui-field-contain"  id="site-description-0">  <!-- Description: First question -->
-                <label for="select-site-description-0" class="select localizable" data-lclstring="site_report_q1"></label>
+                <label id="label-select-site-description-0" for="select-site-description-0" class="select localizable" data-lclstring="site_report_q1"></label>
                 <a href="#siteDescription0HelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
                 <div data-role="popup" id="siteDescription0HelpPopup" style="max-width:300px;">
                     <p class="localizable" data-lclstring="site_report_item_help_1"></p>
@@ -218,7 +229,7 @@ For production version, add manifest and use:
             </div>
 
             <div class="ui-field-contain"  id="site-description-1">  <!-- Description: Second question -->
-                <label for="select-site-description-1" class="select localizable" data-lclstring="site_report_q2"></label>
+                <label id="label-select-site-description-1"  for="select-site-description-1" class="select localizable" data-lclstring="site_report_q2"></label>
                 <a href="#siteDescription1HelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
                 <div data-role="popup" id="siteDescription1HelpPopup" style="max-width:300px;">
                     <p class="localizable" data-lclstring="site_report_item_help_2"></p>
@@ -231,7 +242,7 @@ For production version, add manifest and use:
                 </select>
             </div>
             <div class="ui-field-contain"  id="site-description-2"> <!-- Description: Third question -->
-                <label for="select-site-description-2" class="select localizable" data-lclstring="site_report_q3"></label>
+                <label id="label-select-site-description-2"  for="select-site-description-2" class="select localizable" data-lclstring="site_report_q3"></label>
                 <a href="#siteDescription2HelpPopup" data-role="button" data-icon="info" data-iconpos="notext" data-rel="popup"></a>
                 <div data-role="popup" id="siteDescription2HelpPopup" style="max-width:300px;">
                     <p class="localizable" data-lclstring="site_report_item_help_3"></p>
