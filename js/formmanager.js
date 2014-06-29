@@ -7,11 +7,31 @@ $(document).on('pagebeforeshow', '#report_adult', function() {
     var locations = [$("#location-options")];
     var photos = [$("#attachment")];
     var notes = [$("#notes")];
+
+    // configure mapView
+    var map = getMap("mapView", 41.683200, 2.801387, false);   // Center on CEAB
+
     // on page load, hide questions);
     toggleStatus($("#checkbox-description"), questions);
     toggleStatus($("#checkbox-location"), locations);
     toggleStatus($("#checkbox-photos"), photos);
     toggleStatus($("#checkbox-notes"), notes);
+
+    // configure location selector
+    $("#location-choice-1").on('click', function() {
+        map.remove();
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            //map.panTo(L.latLng(latitude, longitude));
+            map = getMap("mapView", latitude, longitude, true);
+        });     // Use geolocation, must WARN USER
+    });
+
+    $("#location-choice-2").on('click', function() {
+        map.remove();
+        map = getMap("mapView", 41.683200, 2.801387, false);   // Center on CEAB
+    });
 
     // configure checkboxes
     $('#checkbox-description').on('click', function() {
@@ -20,6 +40,7 @@ $(document).on('pagebeforeshow', '#report_adult', function() {
 
     $("#checkbox-location").on('click', function() {
         toggleStatus($(this), locations);
+        map.invalidateSize();       // resize map, otherwise it won't render centered
     });
 
     $('#checkbox-photos').on('click', function(){
@@ -50,11 +71,31 @@ $(document).on('pagebeforeshow', '#report_site', function() {
     var sLocations = [$("#site-location-options")];
     var sPhotos = [$("#site-attachment")];
     var sNotes = [$("#site-notes")];
+
+    // configure mapView
+    var map = getMap("site-mapView", 41.683200, 2.801387, false); // Center on CEAB
+
     // on page load, hide questions);
     toggleStatus($("#checkbox-site-description"), sQuestions);
     toggleStatus($("#checkbox-site-location"), sLocations);
     toggleStatus($("#checkbox-site-photos"), sPhotos);
     toggleStatus($("#checkbox-site-notes"), sNotes);
+
+    // configure location selector
+    $('#site-location-choice-1').on('click', function() {
+        map.remove();
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            //map.panTo(L.latLng(latitude, longitude));
+            map = getMap("site-mapView", latitude, longitude, true);
+        });     // Use geolocation, must WARN USER
+    });
+
+    $("#site-location-choice-2").on('click', function() {
+        map.remove();
+        map = getMap("site-mapView", 41.683200, 2.801387, false);   // Center on CEAB
+    });
 
     // configure checkboxes
     $("#checkbox-site-description").on('click', function() {
@@ -63,6 +104,7 @@ $(document).on('pagebeforeshow', '#report_site', function() {
 
     $("#checkbox-site-location").on('click', function() {
         toggleStatus($(this), sLocations);
+        map.invalidateSize();       // resize map, otherwise it won't render centered
     });
 
     $("#checkbox-site-photos").on('click', function() {
@@ -83,7 +125,43 @@ $(document).on('pagebeforeshow', '#report_site', function() {
     });
 });
 
+// Functions
 
+function getMap(name, lat, lng, geolocation) {
+    var m = L.map(name).setView([lat, lng], 13);
+    var markers = new L.FeatureGroup();
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: "\u00a9 <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors",
+        maxZoom: 18,
+        center: [lat, lng]
+    }).addTo(m);
+    markers.addLayer(L.marker([lat, lng]));
+    m.addLayer(markers);
+
+    if(!geolocation) {
+        m.on('click', function(e) {
+            localStorage["location_choice"] = "selected";
+            localStorage["current_location_lat"] = 0.0;
+            localStorage["current_location_lon"] = 0.0;
+            localStorage["selected_location_lat"] = e.latlng.lat;
+            localStorage["selected_location_lon"] = e.latlng.lng;
+            m.removeLayer(markers);
+            markers = new L.FeatureGroup();
+            markers.addLayer(L.marker([e.latlng.lat, e.latlng.lng]));
+            m.addLayer(markers);
+            $('#mapCoordinates').text(e.latlng); //Write coordinates in the form
+        });
+    }
+    else {
+        localStorage["location_choice"] = "current";
+        localStorage["current_location_lat"] = lat;
+        localStorage["current_location_lon"] = lng;
+        localStorage["selected_location_lat"] = 0.0;
+        localStorage["selected_location_lon"] = 0.0;
+        $('#mapCoordinates').text(L.latLng([lat,lng]));
+    }
+    return m;
+}
 
 function toggleStatus(checkbox, elements) {
     if(checkbox.is(':checked')) {
@@ -123,11 +201,11 @@ function createJSONObject(type, label, answer, note) {
             "version_time": date,
             "type": type,
             "mission": null,
-            "location_choice": null,
-            "current_location_lon": null,
-            "current_location_lat": null,
-            "selected_location_lon": null,
-            "selected_location_lat": null,
+            "location_choice": localStorage.getItem("location_choice"),
+            "current_location_lon": localStorage.getItem("current_location_lon"),
+            "current_location_lat": localStorage.getItem("current_location_lat"),
+            "selected_location_lon": localStorage.getItem("selected_location_lon"),
+            "selected_location_lat": localStorage.getItem("selected_location_lat"),
             "note": note,
             "package_name": "ceab.movelab.tigahtml5",
             "package_version": 0,

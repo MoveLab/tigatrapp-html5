@@ -16,12 +16,14 @@ For production version, add manifest and use:
 		<link rel="stylesheet" href="themes/tigatheme.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="jquery.mobile.structure-1.4.2.min.css" />
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<link rel="stylesheet" type="text/css" href="tigastyle.css">
 		<link rel="apple-touch-icon-precomposed" href="images/ic_launcher.png">
 		<link rel="apple-touch-startup-image" href="images/ic_launcher-web.png">
 		<link rel="icon" type="image/jpg" href="images/ic_launcher.png">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 		<script src="jquery-1.11.1.min.js"></script>
 		<script src="jquery.mobile-1.4.2.min.js"></script>
 		<script src="js/gallery.js"></script>
@@ -42,6 +44,17 @@ For production version, add manifest and use:
             if(localStorage.getItem("user_uuid")==null) {
                 console.log("Creating UUID");
                 localStorage["user_uuid"] = uuid.v4();
+                $.ajax({
+                    type: "POST",
+                    url: "http://tigaserver.atrapaletigre.com/api/users",
+                    data: { user_uuid: localStorage.getItem("user_uuid") },
+                    success: function(data) {
+                        alert(data);
+                    },
+                    error: function(error) {
+                        console.log(jQuery.parseJSON(error.responseText));
+                    }
+                });
             }
             console.log("A user UUID exists");
             console.log(localStorage.getItem("user_uuid"));
@@ -158,12 +171,16 @@ For production version, add manifest and use:
 
             <div data-role="ui-field-contain" id="location-options">
                 <fieldset data-role="controlgroup" data-type="horizontal">
-                    <input type="radio" name="location-choice-1" id="location-choice-1" value="choice-1" checked="checked" />
+                    <input type="radio" name="location-choice-1" id="location-choice-1" value="choice-1" />
                     <label for="location-choice-1" class="localizable" data-lclstring="location_current_label"></label>
 
-                    <input type="radio" name="location-choice-1" id="location-choice-2" value="choice-2"  />
+                    <input type="radio" name="location-choice-1" id="location-choice-2" value="choice-2" />
                     <label for="location-choice-2" class="localizable" data-lclstring="location_select_label"></label>
                 </fieldset>
+
+                <div id="mapView">
+                </div>
+                <label for="mapView" id="mapCoordinates"></label>
             </div>
             
             <div class="ui-field-contain" >      <!-- Photos checkbox -->
@@ -274,12 +291,16 @@ For production version, add manifest and use:
 
             <div data-role="ui-field-contain" id="site-location-options">
                 <fieldset data-role="controlgroup" data-type="horizontal">
-                    <input type="radio" name="site-location-choice-1" id="site-location-choice-1" value="choice-1" checked="checked" />
+                    <input type="radio" name="site-location-choice-1" id="site-location-choice-1" value="choice-1"  />
                     <label for="site-location-choice-1" class="localizable" data-lclstring="location_current_label"></label>
 
-                    <input type="radio" name="site-location-choice-1" id="site-location-choice-2" value="choice-2"  />
+                    <input type="radio" name="site-location-choice-1" id="site-location-choice-2" value="choice-2" />
                     <label for="site-location-choice-2" class="localizable" data-lclstring="location_select_label"></label>
                 </fieldset>
+
+                <div id="site-mapView">
+                </div>
+                <label for="site-mapView" id="site-mapCoordinates"></label>
             </div>
 
             <div class="ui-field-contain" >      <!-- Photos checkbox -->

@@ -22,3 +22,8 @@
     right: 0px;
     bottom: 0px;
 }
+
+#site-mapView,
+#mapView {
+    height: 250px;
+}
