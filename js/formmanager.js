@@ -4,16 +4,22 @@ $(document).on('pagebeforeshow', '#report_adult', function() {
     var labels = [$("#label-select-description-0"), $("#label-select-description-1"), $("#label-select-description-2")];
     var answers = [$("#select-description-0"), $("#select-description-1"), $("#select-description-2")];
     var questions = [$("#description-0"), $("#description-1"), $("#description-2")];
+    var locations = [$("#location-options")];
     var photos = [$("#attachment")];
     var notes = [$("#notes")];
     // on page load, hide questions);
     toggleStatus($("#checkbox-description"), questions);
+    toggleStatus($("#checkbox-location"), locations);
     toggleStatus($("#checkbox-photos"), photos);
     toggleStatus($("#checkbox-notes"), notes);
 
     // configure checkboxes
     $('#checkbox-description').on('click', function() {
         toggleStatus($(this), questions);
+    });
+
+    $("#checkbox-location").on('click', function() {
+        toggleStatus($(this), locations);
     });
 
     $('#checkbox-photos').on('click', function(){
@@ -41,16 +47,22 @@ $(document).on('pagebeforeshow', '#report_site', function() {
     var sLabels = [$("#label-select-site-description-0"), $("#label-select-site-description-1"), $("#label-select-site-description-2")];
     var sAnswers = [$("#select-site-description-0"), $("#select-site-description-1"), $("#select-site-description-2")];
     var sQuestions = [$("#site-description-0"), $("#site-description-1"), $("#site-description-2")];
+    var sLocations = [$("#site-location-options")];
     var sPhotos = [$("#site-attachment")];
     var sNotes = [$("#site-notes")];
     // on page load, hide questions);
     toggleStatus($("#checkbox-site-description"), sQuestions);
+    toggleStatus($("#checkbox-site-location"), sLocations);
     toggleStatus($("#checkbox-site-photos"), sPhotos);
     toggleStatus($("#checkbox-site-notes"), sNotes);
 
     // configure checkboxes
     $("#checkbox-site-description").on('click', function() {
         toggleStatus($(this), sQuestions);
+    });
+
+    $("#checkbox-site-location").on('click', function() {
+        toggleStatus($(this), sLocations);
     });
 
     $("#checkbox-site-photos").on('click', function() {
