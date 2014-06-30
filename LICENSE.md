@@ -1,4 +1,11 @@
-Copyright (C) 2014  John R.B. Palmer, Jordi López, Aitana Oltra, Joan Garriga, and Frederic Bartumeus 
+<p>Tigatrapp is an application that harnesses the power of citizen scientists and new technologies to  
+investigate the spread of Tiger Mosquitoes in Spain. 
+The HTML5 application was developed by Jordi López for the 
+ <a href="http://movelab.net">Movement Ecology Laboratory</a> of the Center for Advanced Studies of Blanes (CEAB-CSIC).
+  The code uses <a href="https://github.com/broofa/node-uuid/">node-uuid</a>, by Robert Kieffer, for generating UUIDs. 
+ The Tigatrapp code is freely available from the Movement Ecology Lab.</p>
+
+Copyright (C) 2014  Jordi López, John R.B. Palmer, Aitana Oltra, Joan Garriga, and Frederic Bartumeus 
 
 Contact: johnrbpalmer@gmail.com
  
@@ -7,6 +14,29 @@ Tigatrapp is free software: you can redistribute it and/or modify it under the t
 Tigatrapp is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 A copy of the GNU General Public License is included at the bottom of this file and it is available at http://www.gnu.org/licenses.
+
+<p>The code incorporated from node-uuid is subject to the following terms:</p>
+
+<blockquote><p>Copyright &#169; 2010-2012 Robert Kieffer</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></blockquote>
 
 The images included in Tigatrapp have been copied and/or adapted from the following artists and are subject to their own license terms:
 
