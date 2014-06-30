@@ -5,7 +5,9 @@
 // and then assign the string name to the custom data-lclstring attribute.
 
 $(function() {
-    var langCode = '-ca'; // dummy variable, will use URL
+    var lang = navigator.language || navigator.userLanguage;
+    console.log("Language is: " + lang);
+    var langCode = '-' + lang;
     $.ajax({
         type: "GET",
         url: "strings/values" + langCode + "/strings.xml",

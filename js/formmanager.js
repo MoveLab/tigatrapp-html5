@@ -209,12 +209,12 @@ function createJSONObject(type, label, answer, note) {
             "note": note,
             "package_name": "ceab.movelab.tigahtml5",
             "package_version": 0,
-            "device_manufacturer": "HTC",
-            "device_model": "T-Mobile G1",
+            "device_manufacturer": "",
+            "device_model": "",
             "os": window.navigator.platform,
             "os_version": window.navigator.oscpu,
             "os_language":  window.navigator.language,
-            "app_language": "ca",
+            "app_language": navigator.language || navigator.userLanguage,
             "responses": [
                 {
                     "question": label[0].text(),
