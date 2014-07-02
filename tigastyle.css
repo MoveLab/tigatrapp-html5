@@ -12,15 +12,13 @@
 }
 
 #mapFrame {
-    height: 87%; // total-header
+    height: 100%;
     width: 100%;
     position: absolute;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
     left: 0px;
-    right: 0px;
-    bottom: 0px;
 }
 
 #site-mapView,

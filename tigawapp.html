@@ -4,55 +4,65 @@ For production version, add manifest and use:
 <html manifest="cache.manifest">
 -->
 <html>
-	<head>
-		<title>Tigatrapp</title>
-		<meta charset="UTF-8">
-		<meta Name="description" Content="Tigatrapp HTML5 web application.">		
-		<meta HTTP-EQUIV="description" Content="Tigatrapp HTML5 web application.">
-		<meta Name="keywords" Content="mosquito, mosquitoes, tiger mosquitoes, invasive species, disease vectors">
-		<meta HTTP-EQUIV="keywords" Content="mosquito, mosquitoes, tiger mosquitoes, invasive species, disease vectors">
-		<meta Name="author" Content="John R.B. Palmer, Movement Ecology Lab">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="themes/tigatheme.min.css" />
-		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-		<link rel="stylesheet" href="jquery.mobile.structure-1.4.2.min.css" />
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-		<link rel="stylesheet" type="text/css" href="tigastyle.css">
-		<link rel="apple-touch-icon-precomposed" href="images/ic_launcher.png">
-		<link rel="apple-touch-startup-image" href="images/ic_launcher-web.png">
-		<link rel="icon" type="image/jpg" href="images/ic_launcher.png">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-		<script src="jquery-1.11.1.min.js"></script>
-		<script src="jquery.mobile-1.4.2.min.js"></script>
-		<script src="js/gallery.js"></script>
-        <script src="js/localization.js"></script>
-        <script src="js/formmanager.js"></script>
-        <script src="js/uuid.js"></script>
-	</head>
+<head>
+    <title>Tigatrapp</title>
+    <meta charset="UTF-8">
+    <meta Name="description" Content="Tigatrapp HTML5 web application.">
+    <meta HTTP-EQUIV="description" Content="Tigatrapp HTML5 web application.">
+    <meta Name="keywords" Content="mosquito, mosquitoes, tiger mosquitoes, invasive species, disease vectors">
+    <meta HTTP-EQUIV="keywords" Content="mosquito, mosquitoes, tiger mosquitoes, invasive species, disease vectors">
+    <meta Name="author" Content="John R.B. Palmer, Movement Ecology Lab">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="themes/tigatheme.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="jquery.mobile.structure-1.4.2.min.css" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="tigastyle.css">
+    <link rel="apple-touch-icon-precomposed" href="images/ic_launcher.png">
+    <link rel="apple-touch-startup-image" href="images/ic_launcher-web.png">
+    <link rel="icon" type="image/jpg" href="images/ic_launcher.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script src="jquery.mobile-1.4.2.min.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/localization.js"></script>
+    <script src="js/formmanager.js"></script>
+    <script src="js/uuid.js"></script>
+</head>
 <body>
 <!-- Start of first page -->
 <div data-role="page" id="switchboard">
 
-	<div data-role="header">
-		<h1>Tigatrapp</h1>
-	</div><!-- /header -->
+    <div data-role="header">
+        <h1>Tigatrapp</h1>
+    </div><!-- /header -->
 
     <script type="text/javascript">
         // TODO: Ask for consent
             if(localStorage.getItem("user_uuid")==null) {
                 console.log("Creating UUID");
-                localStorage["user_uuid"] = uuid.v4();
+                var uuid = uuid.v4();
+                var mData = { "user_uuid": uuid };
+                console.log(uuid);
                 $.ajax({
                     type: "POST",
-                    url: "http://tigaserver.atrapaletigre.com/api/users",
-                    data: { user_uuid: localStorage.getItem("user_uuid") },
+                    beforeSend: function(request) {
+                        request.setRequestHeader("Accept", "application/json");
+                        request.setRequestHeader("Content-type", "application/json");
+                        request.setRequestHeader("Authorization",  "Token 3791ad3995d31cfb56add03030a804a7436079cc");
+                    },
+                    url: "http://tigaserver.atrapaeltigre.com/api/users/",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ "user_uuid": uuid }),
+                    dataType: "json",
                     success: function(data) {
                         alert(data);
+                        localStorage["user_uuid"] = uuid;
                     },
                     error: function(error) {
-                        console.log(jQuery.parseJSON(error.responseText));
+                        console.log(error.responseText);
                     }
                 });
             }
@@ -60,46 +70,46 @@ For production version, add manifest and use:
             console.log(localStorage.getItem("user_uuid"));
         // TODO: Send to server
     </script>
-	<div role="main" class="ui-content">
+    <div role="main" class="ui-content">
 
-<div class="switchboard-content-wrapper">
-<div class="ui-grid-solo">
-    <div class="ui-block-a">    	    	
-    	<a href="#" data-theme="" id="menu_button"> <img src="images/ic_collections_view_as_grid_large.png" width="10%"></a>
-	</div>
-</div>
+        <div class="switchboard-content-wrapper">
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <a href="#" data-theme="" id="menu_button"> <img src="images/ic_collections_view_as_grid_large.png" width="10%"></a>
+                </div>
+            </div>
 
 
-<div class="ui-grid-a">
-    <div class="ui-block-a"><a href="#report_site" data-theme="" id="switchboard_button_site"> <img src="images/ic_switchboard_icon_breeding_site_large.png" width="55%"></a>
-</div>
-    <div class="ui-block-b"><a href="#report_adult" data-theme="" id="switchboard_button_adult"> <img src="images/ic_switchboard_icon_adult_large.png" width="55%"></a>
-</div>
-    <div class="ui-block-a"><a href="#map" data-theme="" id="switchboard_button_map"> <img src="images/ic_switchboard_icon_map_large.png" width="55%"></a>
-</div>
-    <div class="ui-block-b"><a href="#gallery" data-theme="" id="switchboard_button_gallery"> <img src="images/ic_switchboard_icon_gallery_large.png" width="55%"></a>
-</div>
-</div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a href="#report_site" data-theme="" id="switchboard_button_site"> <img src="images/ic_switchboard_icon_breeding_site_large.png" width="55%"></a>
+                </div>
+                <div class="ui-block-b"><a href="#report_adult" data-theme="" id="switchboard_button_adult"> <img src="images/ic_switchboard_icon_adult_large.png" width="55%"></a>
+                </div>
+                <div class="ui-block-a"><a href="#map" data-theme="" id="switchboard_button_map"> <img src="images/ic_switchboard_icon_map_large.png" width="55%"></a>
+                </div>
+                <div class="ui-block-b"><a href="#gallery" data-theme="" id="switchboard_button_gallery"> <img src="images/ic_switchboard_icon_gallery_large.png" width="55%"></a>
+                </div>
+            </div>
 
-<div class="ui-grid-solo">
-    <div class="ui-block-a">    	    	
-    	<a href="http://atrapaeltigre.com" data-theme="" id="tigatrapp_website_link"> <img src="images/atrapaeltigre_site_icon_large.png" width="20%"></a>
-	</div>
-</div>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <a href="http://atrapaeltigre.com" data-theme="" id="tigatrapp_website_link"> <img src="images/atrapaeltigre_site_icon_large.png" width="20%"></a>
+                </div>
+            </div>
 
-</div>
-	</div><!-- /content -->
+        </div>
+    </div><!-- /content -->
 
 </div><!-- /page -->
 
 <!-- Start of second page -->
 <div data-role="page" id="report_adult">
-	<div data-role="header">
-		<h1>Tigatrapp</h1>
+    <div data-role="header">
+        <h1>Tigatrapp</h1>
         <a href="/tigawapp.html" class="ui-btn-left localizable" data-lclstring="html5_home" data-icon="home" data-iconpos="left" data-direction="reverse"></a><!-- home button -->
-	</div><!-- /header -->
-	<div role="main" class="ui-content">
-		<!--To be added-->
+    </div><!-- /header -->
+    <div role="main" class="ui-content">
+        <!--To be added-->
         <form id="adult_form" >     <!-- Adult report form -->
             <div class="ui-grid-d">
                 <div class="ui-block-a"><h2 class="localizable" data-lclstring="report_title_adult"></h2></div>
@@ -182,7 +192,7 @@ For production version, add manifest and use:
                 </div>
                 <label for="mapView" id="mapCoordinates"></label>
             </div>
-            
+
             <div class="ui-field-contain" >      <!-- Photos checkbox -->
                 <input type="checkbox" name="checkbox-photos" id="checkbox-photos" class="custom" />
                 <label for="checkbox-photos" class="localizable" data-lclstring="photo_label"></label>
@@ -202,22 +212,22 @@ For production version, add manifest and use:
 
             <div class="ui-body ui-body-b">      <!-- Submit buttons -->
                 <fieldset class="ui-grid-a">
-                    <div class="ui-block-a"><button type="submit">Cancel</button></div>
-                    <div class="ui-block-b"><button type="submit">Submit</button></div>
+                    <div class="ui-block-a"><button type="submit" class="localizable" data-lclstring="cancel"></button></div>
+                    <div class="ui-block-b"><button type="submit" class="localizable" data-lclstring="submit"></button></div>
                 </fieldset>
             </div>
         </form>
-	</div><!-- /content -->
+    </div><!-- /content -->
 </div><!-- /page -->
 
 <!-- Start of thid page -->
 <div data-role="page" id="report_site">
-	<div data-role="header">
-		<h1>Tigatrapp</h1>
+    <div data-role="header">
+        <h1>Tigatrapp</h1>
         <a href="/tigawapp.html" class="ui-btn-left localizable" data-lclstring="html5_home" data-icon="home" data-iconpos="left" data-direction="reverse"></a><!-- home button -->
-	</div><!-- /header -->
-	<div role="main" class="ui-content">
-		<!--To be added -->
+    </div><!-- /header -->
+    <div role="main" class="ui-content">
+        <!--To be added -->
 
         <form id="site_form">     <!-- Site report form -->
             <div class="ui-grid-d">
@@ -323,46 +333,59 @@ For production version, add manifest and use:
 
             <div class="ui-body ui-body-b">     <!-- Submit buttons -->
                 <fieldset class="ui-grid-a">
-                    <div class="ui-block-a"><button type="submit">Cancel</button></div>
-                    <div class="ui-block-b"><button type="submit">Submit</button></div>
+                    <div class="ui-block-a"><button type="submit" class="localizable" data-lclstring="cancel"></button></div>
+                    <div class="ui-block-b"><button type="submit" class="localizable" data-lclstring="submit"></button></div>
                 </fieldset>
             </div>
         </form>
-	</div><!-- /content -->
+    </div><!-- /content -->
 </div><!-- /page -->
 
 
 <!-- Start of fourth page -->
 <div data-role="page" id="map">
-	<div data-role="header">
+    <div data-role="header" id="mapHeader">
         <h1>Tigatrapp</h1>
         <a href="/tigawapp.html" class="ui-btn-left localizable" data-lclstring="html5_home" data-icon="home" data-iconpos="left" data-direction="reverse"></a><!-- home button -->
-	</div><!-- /header -->
-	<div role="main" class="ui-content">
-		<!--To be added-->
-                <iframe frameborder="0" scrolling="no" height="100%" width="100%" id="mapFrame" src="http://tigaserver.atrapaeltigre.com/webmap/embedded/"></iframe>
-	</div><!-- /content -->
+    </div><!-- /header -->
+    <div role="main" class="ui-content">
+        <!--To be added-->
+        <iframe frameborder="0" scrolling="no" height="100%" width="100%" id="mapFrame" src="http://tigaserver.atrapaeltigre.com/webmap/embedded/"></iframe>
+        <script type="text/javascript">
+            // Let's try to fit map on screen
+            $(document).on('pageshow', function() {
+                var windowHeight = $(window).height();
+                var headerHeight = $("#mapHeader").height();
+
+                // Expected height is window - header
+                var realHeight = windowHeight - headerHeight;
+
+                $("#mapFrame").height(realHeight);
+                $("#mapFrame").css({ top: headerHeight }); // position under header
+            });
+        </script>
+    </div><!-- /content -->
 </div><!-- /page -->
 
 <!-- Start of fifth page -->
 <div data-role="page" id="gallery">
-	<div data-role="header">
-		<h1>Tigatrapp</h1>
+    <div data-role="header">
+        <h1>Tigatrapp</h1>
         <a href="/tigawapp.html" class="ui-btn-left localizable" data-lclstring="html5_home" data-icon="home" data-iconpos="left" data-direction="reverse"></a><!-- home button -->
     </div><!-- /header -->
-	<div role="main" class="ui-content">
-		<!--To be added-->
-		<div class="ui-grid-a">
-			<div class="ui-block-a"><button class="localizable" data-lclstring="html5_gallery_prev" id="previmg" type="button" data-theme="a" data-icon="arrow-l" data-iconpos="left"></button></div>
-			<div class="ui-block-b"><button class="localizable" data-lclstring="html5_gallery_next" id="nextimg" type="button" data-theme="a" data-icon="arrow-r" data-iconpos="right"></button></div>
-		</div>
-		<div class="ui-grid-solo">
-			<div id="galleryImg" class="ui-block-a">
-				<!-- gallery.js -->
-			</div>
-			
-		</div>
-	</div><!-- /content -->
+    <div role="main" class="ui-content">
+        <!--To be added-->
+        <div class="ui-grid-a">
+            <div class="ui-block-a"><button class="localizable" data-lclstring="html5_gallery_prev" id="previmg" type="button" data-theme="a" data-icon="arrow-l" data-iconpos="left"></button></div>
+            <div class="ui-block-b"><button class="localizable" data-lclstring="html5_gallery_next" id="nextimg" type="button" data-theme="a" data-icon="arrow-r" data-iconpos="right"></button></div>
+        </div>
+        <div class="ui-grid-solo">
+            <div id="galleryImg" class="ui-block-a">
+                <!-- gallery.js -->
+            </div>
+
+        </div>
+    </div><!-- /content -->
 </div><!-- /page -->
 
 <!-- Popups -->
