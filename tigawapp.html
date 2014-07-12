@@ -44,31 +44,32 @@ For production version, add manifest and use:
             if(localStorage.getItem("user_uuid")==null) {
                 console.log("Creating UUID");
                 var uuid = uuid.v4();
-                var mData = { "user_uuid": uuid };
+                var mData = new FormData();
+                mData.append( "user_UUID", uuid );
+
                 console.log(uuid);
                 $.ajax({
                     type: "POST",
+                    //url: "http://localhost:8000/api/users/",
+                    url: "http://tigaserver.atrapaeltigre.com/api/users/",
+                    data: mData,
+                    processData: false,
+                    contentType: false,
                     beforeSend: function(request) {
-                        request.setRequestHeader("Accept", "application/json");
-                        request.setRequestHeader("Content-type", "application/json");
                         request.setRequestHeader("Authorization",  "Token 3791ad3995d31cfb56add03030a804a7436079cc");
                     },
-                    url: "http://tigaserver.atrapaeltigre.com/api/users/",
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify({ "user_uuid": uuid }),
-                    dataType: "json",
                     success: function(data) {
                         alert(data);
                         localStorage["user_uuid"] = uuid;
                     },
                     error: function(error) {
-                        console.log(error.responseText);
+                        console.log("ERROR:" + error.responseText);
                     }
+
                 });
             }
             console.log("A user UUID exists");
             console.log(localStorage.getItem("user_uuid"));
-        // TODO: Send to server
     </script>
     <div role="main" class="ui-content">
 
