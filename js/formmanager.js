@@ -53,11 +53,37 @@ $(document).on('pagebeforeshow', '#report_adult', function() {
 
     // Submit configuration
     $('#adult_form').submit(function (event) {
-        var jsonObj = createJSONObject("adult", labels, questions, $('#checkbox-notes-text').val());
 
-        //TODO: Send to server
-        console.log(JSON.stringify(jsonObj, null, '\t'));   // Pretty print from http://myshittycode.com/2013/09/17/pretty-print-json-in-javascript/
+        var is_safari = checkIfSafari();
 
+        if (!attributeSupported("required") || is_safari) { // IE and Safari does not support 'required' properly
+            $("#site_form [required]").each(function(index) {
+                if (!$(this).val()) {
+                    alert("Please fill all fields marked with *");
+                    return false;
+                }
+            });
+        }
+        else {
+            var jsonObj = createJSONObject("adult", labels, answers, $('#checkbox-notes-text').val());
+            console.log(JSON.stringify(jsonObj, null, '\t'));   // Pretty print from http://myshittycode.com/2013/09/17/pretty-print-json-in-javascript/
+            sendReport(jsonObj, false, null);
+
+            if($("#attachment").prop("files")[0] && $("#checkbox-photos").is(":checked")) {
+                console.log("file found");
+                // Post photos
+                var fData = new FormData();
+                var file =  $("#attachment").prop("files")[0];
+                fData.append('report', jsonObj.version_UUID);
+                fData.append('file', file, file.name);
+                sendReport(jsonObj, true, fData);   // Send with image
+            }
+            else {
+                console.log("no file found");
+                sendReport(jsonObj, false, null);   // Send without image
+            }
+        }
+        event.preventDefault(); // avoid redirection
     });
 });
 
@@ -117,17 +143,91 @@ $(document).on('pagebeforeshow', '#report_site', function() {
 
     // Submit configuration
     $('#site_form').submit(function (event) {
-        var jsonObj = createJSONObject("site", sLabels, sAnswers, $('#checkbox-site-notes-text').val());
 
-        //TODO: Send to server
-        console.log(JSON.stringify(jsonObj, null, '\t'));   // Pretty print from http://myshittycode.com/2013/09/17/pretty-print-json-in-javascript/
+        var is_safari = checkIfSafari();
+        if (!attributeSupported("required") || is_safari) { // IE and Safari does not support 'required' properly
+            $("#site_form [required]").each(function(index) {
+                if (!$(this).val()) {
+                    alert("Please fill all fields marked with *");
+                    return false;
+                }
+            });
+        }
+        else {
+            var jsonObj = createJSONObject("site", sLabels, sAnswers, $('#checkbox-site-notes-text').val());
+            console.log(JSON.stringify(jsonObj, null, '\t'));   // Pretty print from http://myshittycode.com/2013/09/17/pretty-print-json-in-javascript/
+            //sendReport(jsonObj);
 
+            // Post with photos
+            var file = $("#site-attachment").prop("files")[0];
+            var fData = new FormData();
+            fData.append('report', jsonObj.version_UUID)
+            fData.append('photo', file, file.name);
+
+            sendReport(jsonObj, true, fData);
+        }
+
+        event.preventDefault(); // avoid redirection
     });
 });
 
+
 // Functions
+function attributeSupported(attribute) { // From http://wideline-studio.com/blog/html5-form-features-and-their-javascript-fallbacks
+  return (attribute in document.createElement("input"));
+}
+
+function checkIfSafari() {
+    return (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1);
+}
+
+function sendReport(jsonObject, image, fData) {
+    $.ajax({
+        type: "POST",
+        url: TIGASERVER_APIURL + TIGASERVER_APIURL_REPORTS;
+        data: JSON.stringify(jsonObject),
+        processData: false,
+        contentType: "application/json",
+        beforeSend: function(request) {
+            request.setRequestHeader("Authorization",  TIGASERVER_AUTHORIZATION);
+        },
+        success: function(data) {
+            //alert("Success");
+            //localStorage["user_uuid"] = uuid;
+            if(image) {
+                sendImage(fData);
+            }
+        },
+            error: function(error) {
+            console.log("ERROR:" + error.responseText);
+        }
+
+    });
+}
+
+function sendImage(data) {
+    console.log("Attempting to send image");
+
+    $.ajax({
+        type: "POST",
+        url: TIGASERVER_APIURL + TIGASERVER_APIURL_PHOTOS;
+        data: data,
+        processData: false,
+        contentType: false, // This will be configured as multipart/form-data
+        beforeSend: function(request) {
+            request.setRequestHeader("Authorization",  TIGASERVER_AUTHORIZATION);
+        },
+        success: function(data) {
+            alert("Success");
+        },
+        error: function(error) {
+            console.log("ERROR:" + error.responseText);
+        }
+    });
+}
 
 function getMap(name, lat, lng, geolocation) {
+    //console.log("Initializing map, geolocation: " + geolocation);
     var m = L.map(name).setView([lat, lng], 13);
     var markers = new L.FeatureGroup();
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -139,13 +239,22 @@ function getMap(name, lat, lng, geolocation) {
     m.addLayer(markers);
 
     if(!geolocation) {
+
+        // Set defaults
+        localStorage["location_choice"] = "selected";
+        localStorage["current_location_lat"] = 0.0;
+        localStorage["current_location_lon"] = 0.0;
+        localStorage["selected_location_lat"] = 41.683200;
+        localStorage["selected_location_lon"] = 2.801387;
+
+        // Set click listener
         m.on('click', function(e) {
             localStorage["location_choice"] = "selected";
             localStorage["current_location_lat"] = 0.0;
             localStorage["current_location_lon"] = 0.0;
             localStorage["selected_location_lat"] = e.latlng.lat;
             localStorage["selected_location_lon"] = e.latlng.lng;
-            m.removeLayer(markers);
+            m.removeLayer(markers);     // Remove old markers, there MUST be only one
             markers = new L.FeatureGroup();
             markers.addLayer(L.marker([e.latlng.lat, e.latlng.lng]));
             m.addLayer(markers);

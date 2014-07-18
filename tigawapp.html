@@ -26,6 +26,8 @@ For production version, add manifest and use:
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="jquery-1.11.1.min.js"></script>
     <script src="jquery.mobile-1.4.2.min.js"></script>
+
+    <script src="js/global.js"></script>
     <script src="js/gallery.js"></script>
     <script src="js/localization.js"></script>
     <script src="js/formmanager.js"></script>
@@ -50,13 +52,12 @@ For production version, add manifest and use:
                 console.log(uuid);
                 $.ajax({
                     type: "POST",
-                    //url: "http://localhost:8000/api/users/",
-                    url: "http://tigaserver.atrapaeltigre.com/api/users/",
+                    url: TIGASERVER_APIURL + TIGASERVER_APIURL_USERS,
                     data: mData,
                     processData: false,
                     contentType: false,
                     beforeSend: function(request) {
-                        request.setRequestHeader("Authorization",  "Token 3791ad3995d31cfb56add03030a804a7436079cc");
+                        request.setRequestHeader("Authorization", TIGASERVER_AUTHORIZATION);
                     },
                     success: function(data) {
                         alert(data);
@@ -125,7 +126,7 @@ For production version, add manifest and use:
             </div>
 
             <div class="ui-field-contain" >      <!-- Description checkbox -->
-                <input type="checkbox" name="checkbox-description" id="checkbox-description" class="custom" />
+                <input type="checkbox" name="checkbox-description" id="checkbox-description" class="custom" required/>
                 <label for="checkbox-description" class="localizable" data-lclstring="checklist_label"></label>
 
             </div>
@@ -176,7 +177,7 @@ For production version, add manifest and use:
 
             <div class="ui-field-contain" >      <!-- Location checkbox -->
 
-                <input type="checkbox" name="checkbox-location" id="checkbox-location" class="custom" />
+                <input type="checkbox" name="checkbox-location" id="checkbox-location" class="custom" required/>
                 <label for="checkbox-location" class="localizable" data-lclstring="location_label"></label>
             </div>
 
@@ -244,8 +245,8 @@ For production version, add manifest and use:
             </div>
 
 
-            <div class="ui-field-contain" >      <!-- Description checkbox -->
-                <input type="checkbox" name="checkbox-site-description" id="checkbox-site-description" class="custom" />
+            <div class="ui-field-contain">      <!-- Description checkbox -->
+                <input type="checkbox" name="checkbox-site-description" id="checkbox-site-description" class="custom" required/>
                 <label for="checkbox-site-description" class="localizable" data-lclstring="checklist_label"></label>
             </div>
 
@@ -294,9 +295,9 @@ For production version, add manifest and use:
                 </select>
             </div>
 
-            <div class="ui-field-contain" >      <!-- Location checkbox -->
+            <div class="ui-field-contain">      <!-- Location checkbox -->
 
-                <input type="checkbox" name="checkbox-site-location" id="checkbox-site-location" class="custom" />
+                <input type="checkbox" name="checkbox-site-location" id="checkbox-site-location" class="custom" required/>
                 <label for="checkbox-site-location" class="localizable" data-lclstring="location_label"></label>
             </div>
 
@@ -314,9 +315,9 @@ For production version, add manifest and use:
                 <label for="site-mapView" id="site-mapCoordinates"></label>
             </div>
 
-            <div class="ui-field-contain" >      <!-- Photos checkbox -->
-                <input type="checkbox" name="checkbox-site-photos" id="checkbox-site-photos" class="custom" />
-                <label for="checkbox-site-photos" class="localizable" data-lclstring="photo_label"></label>
+            <div class="ui-field-contain">      <!-- Photos checkbox -->
+                <input type="checkbox" name="checkbox-site-photos" id="checkbox-site-photos" class="custom"  required/>
+                <label for="checkbox-site-photos" class="localizable" data-lclstring="photo_label_star"></label>
 
                 <input type="file" id="site-attachment" name="site-attachment" />
             </div>
