@@ -1,5 +1,5 @@
 // Adult form
-$(document).on('pagebeforeshow', '#report_adult', function() {
+$(document).on('pagecreate', '#report_adult', function() {
 
     var labels = [$("#label-select-description-0"), $("#label-select-description-1"), $("#label-select-description-2")];
     var answers = [$("#select-description-0"), $("#select-description-1"), $("#select-description-2")];
@@ -12,13 +12,12 @@ $(document).on('pagebeforeshow', '#report_adult', function() {
     var locationChoices = [$("#location-choice-1"), $("#location-choice-2")];
 
     var map = getMap("mapView", LATITUDE_DEFAULT, LONGITUDE_DEFAULT, false);
-    configureForm(sections, locationChoices, questions, locations, photos, notes, $("#adult_form"), "adult", labels, answers, map);
 
+    configureForm(sections, locationChoices, questions, locations, photos, notes, $("#adult_form"), "adult", labels, answers, map);
 });
 
-
 // Site form
-$(document).on('pagebeforeshow', '#report_site', function() {
+$(document).on('pagecreate', '#report_site', function() {
 
     var sLabels = [$("#label-select-site-description-0"), $("#label-select-site-description-1"), $("#label-select-site-description-2")];
     var sAnswers = [$("#select-site-description-0"), $("#select-site-description-1"), $("#select-site-description-2")];
@@ -31,9 +30,10 @@ $(document).on('pagebeforeshow', '#report_site', function() {
     var sLocationChoices = [$("#site-location-choice-1"), $("#site-location-choice-2")];
 
     var sMap = getMap("site-mapView", LATITUDE_DEFAULT, LONGITUDE_DEFAULT, false);
-    configureForm(sSections, sLocationChoices, sQuestions, sLocations, sPhotos, sNotes, $("#site_form"), "site", sLabels, sAnswers, sMap);
 
+    configureForm(sSections, sLocationChoices, sQuestions, sLocations, sPhotos, sNotes, $("#site_form"), "site", sLabels, sAnswers, sMap);
 });
+
 
 // Functions
 function configureForm(sections, locationChoices, questions, locations, photos, notes, form, type, labels, answers, map) {
@@ -83,7 +83,7 @@ function configureForm(sections, locationChoices, questions, locations, photos, 
             });
         }
         else {
-            var jsonObj = createJSONObject(type, labels, answers, sections[3].val());
+            var jsonObj = createJSONObject(type, labels, answers, $(" input[name*='notes-text'] ").val());
             console.log(JSON.stringify(jsonObj, null, '\t'));
             var file;
             $(" input[name*='attachment'] ").each(function() {
@@ -171,8 +171,8 @@ function getMap(name, lat, lng, geolocation) {
         localStorage["location_choice"] = "selected";
         localStorage["current_location_lat"] = 0.0;
         localStorage["current_location_lon"] = 0.0;
-        localStorage["selected_location_lat"] = 41.683200;
-        localStorage["selected_location_lon"] = 2.801387;
+        localStorage["selected_location_lat"] = LATITUDE_DEFAULT;
+        localStorage["selected_location_lon"] = LONGITUDE_DEFAULT;
 
         // Set click listener
         m.on('click', function(e) {
@@ -254,15 +254,15 @@ function createJSONObject(type, label, answer, note) {
             "responses": [
                 {
                     "question": label[0].text(),
-                    "answer": answer[0].val()
+                    "answer": answer[0].find('option:selected').text()
                 },
                 {
                     "question": label[1].text(),
-                    "answer": answer[1].val()
+                    "answer": answer[1].find('option:selected').text()
                 },
                 {
                     "question": label[2].text(),
-                    "answer": answer[2].val()
+                    "answer": answer[2].find('option:selected').text()
                 }
             ],
 
