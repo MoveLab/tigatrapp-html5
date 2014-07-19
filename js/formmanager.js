@@ -8,83 +8,12 @@ $(document).on('pagebeforeshow', '#report_adult', function() {
     var photos = [$("#attachment")];
     var notes = [$("#notes")];
 
-    // configure mapView
-    var map = getMap("mapView", 41.683200, 2.801387, false);   // Center on CEAB
+    var sections = [$("#checkbox-description"), $("#checkbox-location"), $("#checkbox-photos"), $("#checkbox-notes")];
+    var locationChoices = [$("#location-choice-1"), $("#location-choice-2")];
 
-    // on page load, hide questions);
-    toggleStatus($("#checkbox-description"), questions);
-    toggleStatus($("#checkbox-location"), locations);
-    toggleStatus($("#checkbox-photos"), photos);
-    toggleStatus($("#checkbox-notes"), notes);
+    var map = getMap("mapView", LATITUDE_DEFAULT, LONGITUDE_DEFAULT, false);
+    configureForm(sections, locationChoices, questions, locations, photos, notes, $("#adult_form"), "adult", labels, answers, map);
 
-    // configure location selector
-    $("#location-choice-1").on('click', function() {
-        map.remove();
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-            //map.panTo(L.latLng(latitude, longitude));
-            map = getMap("mapView", latitude, longitude, true);
-        });     // Use geolocation, must WARN USER
-    });
-
-    $("#location-choice-2").on('click', function() {
-        map.remove();
-        map = getMap("mapView", 41.683200, 2.801387, false);   // Center on CEAB
-    });
-
-    // configure checkboxes
-    $('#checkbox-description').on('click', function() {
-        toggleStatus($(this), questions);
-    });
-
-    $("#checkbox-location").on('click', function() {
-        toggleStatus($(this), locations);
-        map.invalidateSize();       // resize map, otherwise it won't render centered
-    });
-
-    $('#checkbox-photos').on('click', function(){
-        toggleStatus($(this), photos);
-    });
-
-    $('#checkbox-notes').on('click', function() {
-        toggleStatus($(this), notes);
-    });
-
-    // Submit configuration
-    $('#adult_form').submit(function (event) {
-
-        var is_safari = checkIfSafari();
-
-        if (!attributeSupported("required") || is_safari) { // IE and Safari does not support 'required' properly
-            $("#site_form [required]").each(function(index) {
-                if (!$(this).val()) {
-                    alert("Please fill all fields marked with *");
-                    return false;
-                }
-            });
-        }
-        else {
-            var jsonObj = createJSONObject("adult", labels, answers, $('#checkbox-notes-text').val());
-            console.log(JSON.stringify(jsonObj, null, '\t'));   // Pretty print from http://myshittycode.com/2013/09/17/pretty-print-json-in-javascript/
-            sendReport(jsonObj, false, null);
-
-            if($("#attachment").prop("files")[0] && $("#checkbox-photos").is(":checked")) {
-                console.log("file found");
-                // Post photos
-                var fData = new FormData();
-                var file =  $("#attachment").prop("files")[0];
-                fData.append('report', jsonObj.version_UUID);
-                fData.append('file', file, file.name);
-                sendReport(jsonObj, true, fData);   // Send with image
-            }
-            else {
-                console.log("no file found");
-                sendReport(jsonObj, false, null);   // Send without image
-            }
-        }
-        event.preventDefault(); // avoid redirection
-    });
 });
 
 
@@ -98,70 +27,70 @@ $(document).on('pagebeforeshow', '#report_site', function() {
     var sPhotos = [$("#site-attachment")];
     var sNotes = [$("#site-notes")];
 
-    // configure mapView
-    var map = getMap("site-mapView", 41.683200, 2.801387, false); // Center on CEAB
+    var sSections = [$("#checkbox-site-description"), $("#checkbox-site-location"), $("#checkbox-site-photos"), $("#checkbox-site-notes")];
+    var sLocationChoices = [$("#site-location-choice-1"), $("#site-location-choice-2")];
 
-    // on page load, hide questions);
-    toggleStatus($("#checkbox-site-description"), sQuestions);
-    toggleStatus($("#checkbox-site-location"), sLocations);
-    toggleStatus($("#checkbox-site-photos"), sPhotos);
-    toggleStatus($("#checkbox-site-notes"), sNotes);
+    var sMap = getMap("site-mapView", LATITUDE_DEFAULT, LONGITUDE_DEFAULT, false);
+    configureForm(sSections, sLocationChoices, sQuestions, sLocations, sPhotos, sNotes, $("#site_form"), "site", sLabels, sAnswers, sMap);
 
-    // configure location selector
-    $('#site-location-choice-1').on('click', function() {
-        map.remove();
+});
+
+// Functions
+function configureForm(sections, locationChoices, questions, locations, photos, notes, form, type, labels, answers, map) {
+    $(" div[id*='mapView'] ").hide();
+
+    toggleStatus(sections[0], questions);
+    sections[0].on('click', function() {
+        toggleStatus($(this), questions);
+    });
+    toggleStatus(sections[1], locations);
+    sections[1].on('click', function() {
+        toggleStatus($(this), locations);
+    });
+    toggleStatus(sections[2], photos);
+    sections[2].on('click', function() {
+        toggleStatus($(this), photos);
+    });
+    toggleStatus(sections[3], notes);
+    sections[3].on('click', function() {
+        toggleStatus($(this), notes);
+    });
+
+    locationChoices[0].on('click', function() {
         navigator.geolocation.getCurrentPosition(function(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            //map.panTo(L.latLng(latitude, longitude));
-            map = getMap("site-mapView", latitude, longitude, true);
-        });     // Use geolocation, must WARN USER
+            $(" div[id*='mapView'] ").show();
+            map.invalidateSize();
+            map.setView([latitude, longitude], ZOOM_DEFAULT);
+        }, geolocationError);    // Use geolocation, must WARN USER
     });
 
-    $("#site-location-choice-2").on('click', function() {
-        map.remove();
-        map = getMap("site-mapView", 41.683200, 2.801387, false);   // Center on CEAB
+    locationChoices[1].on('click', function() {
+        $(" div[id*='mapView'] ").show();
+        map.invalidateSize();
+        map.setView([LATITUDE_DEFAULT, LONGITUDE_DEFAULT], ZOOM_DEFAULT);
     });
 
-    // configure checkboxes
-    $("#checkbox-site-description").on('click', function() {
-        toggleStatus($(this), sQuestions);
-    });
-
-    $("#checkbox-site-location").on('click', function() {
-        toggleStatus($(this), sLocations);
-        map.invalidateSize();       // resize map, otherwise it won't render centered
-    });
-
-    $("#checkbox-site-photos").on('click', function() {
-        toggleStatus($(this), sPhotos);
-    });
-
-    $('#checkbox-site-notes').on('click', function() {
-        toggleStatus($(this), sNotes);
-    });
-
-    // Submit configuration
-    $('#site_form').submit(function (event) {
-
+    form.submit(function (event) {
         var is_safari = checkIfSafari();
-        if (!attributeSupported("required") || is_safari) { // IE and Safari does not support 'required' properly
-            $("#site_form [required]").each(function(index) {
-                if (!$(this).val()) {
+        if(!attributeSupported("required") || is_safari) {
+            $(" form [required]").each(function(index) {
+                if(!$(this).val()) {
                     alert("Please fill all fields marked with *");
                     return false;
                 }
             });
         }
         else {
-            var jsonObj = createJSONObject("site", sLabels, sAnswers, $('#checkbox-site-notes-text').val());
-            console.log(JSON.stringify(jsonObj, null, '\t'));   // Pretty print from http://myshittycode.com/2013/09/17/pretty-print-json-in-javascript/
-            //sendReport(jsonObj);
-
-            // Post with photos
-            var file = $("#site-attachment").prop("files")[0];
+            var jsonObj = createJSONObject(type, labels, answers, sections[3].val());
+            console.log(JSON.stringify(jsonObj, null, '\t'));
+            var file;
+            $(" input[name*='attachment'] ").each(function() {
+                 file = $(this).prop("files")[0];
+            });
             var fData = new FormData();
-            fData.append('report', jsonObj.version_UUID)
+            fData.append('report', jsonObj.version_UUID);
             fData.append('photo', file, file.name);
 
             sendReport(jsonObj, true, fData);
@@ -169,10 +98,8 @@ $(document).on('pagebeforeshow', '#report_site', function() {
 
         event.preventDefault(); // avoid redirection
     });
-});
+}
 
-
-// Functions
 function attributeSupported(attribute) { // From http://wideline-studio.com/blog/html5-form-features-and-their-javascript-fallbacks
   return (attribute in document.createElement("input"));
 }
@@ -184,7 +111,7 @@ function checkIfSafari() {
 function sendReport(jsonObject, image, fData) {
     $.ajax({
         type: "POST",
-        url: TIGASERVER_APIURL + TIGASERVER_APIURL_REPORTS;
+        url: TIGASERVER_APIURL + TIGASERVER_APIURL_REPORTS,
         data: JSON.stringify(jsonObject),
         processData: false,
         contentType: "application/json",
@@ -210,7 +137,7 @@ function sendImage(data) {
 
     $.ajax({
         type: "POST",
-        url: TIGASERVER_APIURL + TIGASERVER_APIURL_PHOTOS;
+        url: TIGASERVER_APIURL + TIGASERVER_APIURL_PHOTOS,
         data: data,
         processData: false,
         contentType: false, // This will be configured as multipart/form-data
@@ -227,7 +154,7 @@ function sendImage(data) {
 }
 
 function getMap(name, lat, lng, geolocation) {
-    //console.log("Initializing map, geolocation: " + geolocation);
+    console.log("Initializing map, geolocation: " + geolocation);
     var m = L.map(name).setView([lat, lng], 13);
     var markers = new L.FeatureGroup();
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -341,4 +268,11 @@ function createJSONObject(type, label, answer, note) {
 
     };
     return jsonObj;
+}
+
+function geolocationError(err) {
+    console.log(err);
+    if(err.code==1) { // user denied permission
+        alert(err.message);
+    }
 }

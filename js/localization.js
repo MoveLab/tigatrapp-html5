@@ -15,7 +15,7 @@ $(function() {
         success: function(xml) {
             $(xml).find('string').each(function() {
                 var name = $(this).attr('name');
-                var text = $(this).text().replace("\\","");
+                var text = $(this).text().replace(/\\/g,"");
 
                 // Using plain classes
                 //$("."+name).html(text);

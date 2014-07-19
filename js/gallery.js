@@ -82,7 +82,7 @@ $(function() {
                 $(xml).find('string-array').each(function() {
                     if($(this).attr('name')=='gallery_array') {
                         var text = $(this).find('item').map(function() {
-                            return $(this).text().replace("\\","");
+                            return $(this).text().replace(/\\/g,"");
                         }).get(position);
                         $(".gallery_array_"+position).html(text);
                     }
