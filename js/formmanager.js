@@ -1,42 +1,42 @@
 // Adult form
 $(document).on('pagecreate', '#report_adult', function() {
-
     var labels = [$("#label-select-description-0"), $("#label-select-description-1"), $("#label-select-description-2")];
     var answers = [$("#select-description-0"), $("#select-description-1"), $("#select-description-2")];
     var questions = [$("#description-0"), $("#description-1"), $("#description-2")];
     var locations = [$("#location-options")];
     var photos = [$("#attachment")];
     var notes = [$("#notes")];
+    var terms = [$("#terms")];
 
     var sections = [$("#checkbox-description"), $("#checkbox-location"), $("#checkbox-photos"), $("#checkbox-notes")];
     var locationChoices = [$("#location-choice-1"), $("#location-choice-2")];
 
     var map = getMap("mapView", LATITUDE_DEFAULT, LONGITUDE_DEFAULT, false);
 
-    configureForm(sections, locationChoices, questions, locations, photos, notes, $("#adult_form"), "adult", labels, answers, map);
+    configureForm(sections, locationChoices, questions, locations, photos, notes, $("#adult_form"), "adult", labels, answers, map, terms);
 });
 
 // Site form
 $(document).on('pagecreate', '#report_site', function() {
-
     var sLabels = [$("#label-select-site-description-0"), $("#label-select-site-description-1"), $("#label-select-site-description-2")];
     var sAnswers = [$("#select-site-description-0"), $("#select-site-description-1"), $("#select-site-description-2")];
     var sQuestions = [$("#site-description-0"), $("#site-description-1"), $("#site-description-2")];
     var sLocations = [$("#site-location-options")];
     var sPhotos = [$("#site-attachment")];
     var sNotes = [$("#site-notes")];
+    var sTerms = [$("#checkbox-site-terms")];
 
     var sSections = [$("#checkbox-site-description"), $("#checkbox-site-location"), $("#checkbox-site-photos"), $("#checkbox-site-notes")];
     var sLocationChoices = [$("#site-location-choice-1"), $("#site-location-choice-2")];
 
     var sMap = getMap("site-mapView", LATITUDE_DEFAULT, LONGITUDE_DEFAULT, false);
 
-    configureForm(sSections, sLocationChoices, sQuestions, sLocations, sPhotos, sNotes, $("#site_form"), "site", sLabels, sAnswers, sMap);
+    configureForm(sSections, sLocationChoices, sQuestions, sLocations, sPhotos, sNotes, $("#site_form"), "site", sLabels, sAnswers, sMap, sTerms);
 });
 
 
 // Functions
-function configureForm(sections, locationChoices, questions, locations, photos, notes, form, type, labels, answers, map) {
+function configureForm(sections, locationChoices, questions, locations, photos, notes, form, type, labels, answers, map, terms) {
     $(" div[id*='mapView'] ").hide();
 
     toggleStatus(sections[0], questions);
@@ -84,19 +84,32 @@ function configureForm(sections, locationChoices, questions, locations, photos, 
         }
         else {
             var jsonObj = createJSONObject(type, labels, answers, $(" input[name*='notes-text'] ").val());
-            console.log(JSON.stringify(jsonObj, null, '\t'));
-            var file;
+            var file, withImage;
             $(" input[name*='attachment'] ").each(function() {
                  file = $(this).prop("files")[0];
             });
-            var fData = new FormData();
-            fData.append('report', jsonObj.version_UUID);
-            fData.append('photo', file, file.name);
+            if($.isEmptyObject(file)) { // check if there's something attached
+                withImage=false;
+            }
+            else {
+                var fData = new FormData();
+                fData.append('report', jsonObj.version_UUID);
+                fData.append('photo', file, file.name);
+                withImage=true;
+            }
 
-            sendReport(jsonObj, true, fData);
+            if(localStorage.getItem('user_uuid')==null) {   // check if there's a local user
+                sendUser(jsonObj, withImage, fData);
+            }
+            else {
+                sendReport(jsonObj, withImage, fData);
+            }
+
+            console.log(JSON.stringify(jsonObj, null, '\t'));
         }
 
         event.preventDefault(); // avoid redirection
+        $.mobile.changePage("#");
     });
 }
 
@@ -108,6 +121,36 @@ function checkIfSafari() {
     return (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1);
 }
 
+function sendUser(jsonObject, image, fData) {
+    console.log("Creating UUID");
+    var user_uuid = uuid.v4();
+    var mData = new FormData();
+    mData.append( "user_UUID", user_uuid );
+
+    jsonObject.user = user_uuid;
+    console.log(user_uuid);
+    $.ajax({
+        type: "POST",
+        url: TIGASERVER_APIURL + TIGASERVER_APIURL_USERS,
+        data: mData,
+        processData: false,
+        contentType: false,
+        beforeSend: function(request) {
+        request.setRequestHeader("Authorization", TIGASERVER_AUTHORIZATION);
+        },
+        success: function(data) {
+            alert(data.user_UUID);
+            localStorage["user_uuid"] = user_uuid;
+            console.log("A user UUID exists");
+            console.log(localStorage.getItem("user_uuid"));
+            sendReport(jsonObject, image, fData);
+        },
+        error: function(error) {
+            console.log("ERROR:" + error.responseText);
+        }
+
+    });
+}
 function sendReport(jsonObject, image, fData) {
     $.ajax({
         type: "POST",
@@ -125,7 +168,7 @@ function sendReport(jsonObject, image, fData) {
                 sendImage(fData);
             }
         },
-            error: function(error) {
+        error: function(error) {
             console.log("ERROR:" + error.responseText);
         }
 

@@ -13,7 +13,7 @@ $(function() {
         url: "strings/values" + langCode + "/strings.xml",
         dataType: "xml",
         success: function(xml) {
-            $(xml).find('string').each(function() {
+            $(xml).find('string').each(function() { // Parse strings
                 var name = $(this).attr('name');
                 var text = $(this).text().replace(/\\/g,"");
 
@@ -27,6 +27,21 @@ $(function() {
                     }
                 });
             });
+            $(xml).find('string-array').each(function() { //Parse string arrays
+                if($(this).attr('name')=='gallery_array') { // Gallery
+                    var text = $(this).find('item').map(function() {
+                        return $(this).text().replace(/\\/g,"");
+                    });
+                    //$(".gallery_array_"+position).html(text);
+                    $(".localizable").map(function() {
+                        if($(this).data("lclstringarray")=="gallery") {
+                            $(this).html(text.get($(this).data("lclstringarraypos")));
+                        }
+
+                    });
+                }
+            });
+
         }
     });
 });

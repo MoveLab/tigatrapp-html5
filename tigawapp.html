@@ -15,7 +15,8 @@ For production version, add manifest and use:
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="themes/tigatheme.min.css" />
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="jquery.mobile.structure-1.4.2.min.css" />
+    <link rel="stylesheet" href="jquery.mobile.structure-1.4.3.min.css" />
+    <link rel="stylesheet" href="jquery.mobile.theme-1.4.3.min.css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="tigastyle.css">
     <link rel="apple-touch-icon-precomposed" href="images/ic_launcher.png">
@@ -25,7 +26,7 @@ For production version, add manifest and use:
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="jquery-1.11.1.min.js"></script>
-    <script src="jquery.mobile-1.4.2.min.js"></script>
+    <script src="jquery.mobile-1.4.3.min.js"></script>
 
     <script src="js/global.js"></script>
     <script src="js/gallery.js"></script>
@@ -41,37 +42,7 @@ For production version, add manifest and use:
         <h1>Tigatrapp</h1>
     </div><!-- /header -->
 
-    <script type="text/javascript">
-        // TODO: Ask for consent
-            if(localStorage.getItem("user_uuid")==null) {
-                console.log("Creating UUID");
-                var uuid = uuid.v4();
-                var mData = new FormData();
-                mData.append( "user_UUID", uuid );
 
-                console.log(uuid);
-                $.ajax({
-                    type: "POST",
-                    url: TIGASERVER_APIURL + TIGASERVER_APIURL_USERS,
-                    data: mData,
-                    processData: false,
-                    contentType: false,
-                    beforeSend: function(request) {
-                        request.setRequestHeader("Authorization", TIGASERVER_AUTHORIZATION);
-                    },
-                    success: function(data) {
-                        alert(data);
-                        localStorage["user_uuid"] = uuid;
-                    },
-                    error: function(error) {
-                        console.log("ERROR:" + error.responseText);
-                    }
-
-                });
-            }
-            console.log("A user UUID exists");
-            console.log(localStorage.getItem("user_uuid"));
-    </script>
     <div role="main" class="ui-content">
 
         <div class="switchboard-content-wrapper">
@@ -211,8 +182,12 @@ For production version, add manifest and use:
                 <input type="text" name="checkbox-notes-text" id="checkbox-notes-text" value="" />
             </div>
 
+            <div class="ui-field-contain">
+                <input type="checkbox" name="checkbox-terms" data-mini="true" id="checkbox-terms" class="custom" required/>
+                <label for="checkbox-terms" class="localizable" data-lclstring="report_sent"></label>
+            </div>
 
-            <div class="ui-body ui-body-b">      <!-- Submit buttons -->
+            <div class="ui-body ui-body-a">      <!-- Submit buttons -->
                 <fieldset class="ui-grid-a">
                     <div class="ui-block-a"><button type="submit" class="localizable" data-lclstring="cancel"></button></div>
                     <div class="ui-block-b"><button type="submit" class="localizable" data-lclstring="submit"></button></div>
@@ -332,9 +307,13 @@ For production version, add manifest and use:
                 <input type="text" name="checkbox-site-notes-text" id="checkbox-site-notes-text" value="" />
             </div>
 
+            <div class="ui-field-contain">
+                <input type="checkbox" name="checkbox-site-terms" data-mini="true" id="checkbox-site-terms" class="custom" required/>
+                <label for="checkbox-site-terms" class="localizable" data-lclstring="report_sent"></label>
+            </div>
 
-            <div class="ui-body ui-body-b">     <!-- Submit buttons -->
-                <fieldset class="ui-grid-a">
+            <div class="ui-body ui-body-a" >     <!-- Submit buttons -->
+                <fieldset class="ui-grid-a" >
                     <div class="ui-block-a"><button type="submit" class="localizable" data-lclstring="cancel"></button></div>
                     <div class="ui-block-b"><button type="submit" class="localizable" data-lclstring="submit"></button></div>
                 </fieldset>
@@ -355,7 +334,7 @@ For production version, add manifest and use:
         <iframe frameborder="0" scrolling="no" height="100%" width="100%" id="mapFrame" src="http://tigaserver.atrapaeltigre.com/webmap/embedded/"></iframe>
         <script type="text/javascript">
             // Let's try to fit map on screen
-            $(document).on('pageshow', function() {
+            $(document).on('pageshow', '#map', function() {
                 var windowHeight = $(window).height();
                 var headerHeight = $("#mapHeader").height();
 
@@ -365,6 +344,8 @@ For production version, add manifest and use:
                 $("#mapFrame").height(realHeight);
                 $("#mapFrame").css({ top: headerHeight }); // position under header
             });
+
+
         </script>
     </div><!-- /content -->
 </div><!-- /page -->
@@ -384,6 +365,64 @@ For production version, add manifest and use:
         <div class="ui-grid-solo">
             <div id="galleryImg" class="ui-block-a">
                 <!-- gallery.js -->
+
+                <!-- New gallery design using only jQuery mobile
+                <a href="#popupA" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/a.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupA" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="images/gallery/a.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=0 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupB" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/c.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupB" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/c.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=1 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupC" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/d.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupC" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/d.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=2 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupD" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/e.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupD" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/e.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=3 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupE" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/f.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupE" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/f.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=4 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupF" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/g.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupF" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/g.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=5 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupG" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/h.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupG" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/h.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=6 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupH" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/i.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupH" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/i.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=7 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupI" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/j.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupI" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/j.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=8 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupJ" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/k.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupJ" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/k.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=9 style="max-width:500px;"></p>
+                </div>
+                <a href="#popupK" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/l.jpg"  style="width:30%"></a>
+                <div data-role="popup" id="popupK" data-overlay-theme="b" data-theme="a" data-corners="false">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/l.jpg" style="max-height:512px;" >
+                    <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=10 style="max-width:500px;"></p>
+                </div>
+                --><!-- End of new gallery -->
             </div>
 
         </div>
@@ -391,6 +430,7 @@ For production version, add manifest and use:
 </div><!-- /page -->
 
 <!-- Popups -->
+
 
 </body>
 </html>	
