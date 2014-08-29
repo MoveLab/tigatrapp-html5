@@ -29,7 +29,6 @@ For production version, add manifest and use:
     <script src="jquery.mobile-1.4.3.min.js"></script>
 
     <script src="js/global.js"></script>
-    <script src="js/gallery.js"></script>
     <script src="js/localization.js"></script>
     <script src="js/formmanager.js"></script>
     <script src="js/uuid.js"></script>
@@ -357,16 +356,10 @@ For production version, add manifest and use:
         <a href="/tigawapp.html" class="ui-btn-left localizable" data-lclstring="html5_home" data-icon="home" data-iconpos="left" data-direction="reverse"></a><!-- home button -->
     </div><!-- /header -->
     <div role="main" class="ui-content">
-        <!--To be added-->
-        <div class="ui-grid-a">
-            <div class="ui-block-a"><button class="localizable" data-lclstring="html5_gallery_prev" id="previmg" type="button" data-theme="a" data-icon="arrow-l" data-iconpos="left"></button></div>
-            <div class="ui-block-b"><button class="localizable" data-lclstring="html5_gallery_next" id="nextimg" type="button" data-theme="a" data-icon="arrow-r" data-iconpos="right"></button></div>
-        </div>
         <div class="ui-grid-solo">
             <div id="galleryImg" class="ui-block-a">
-                <!-- gallery.js -->
 
-                <!-- New gallery design using only jQuery mobile
+                <!-- New gallery design using only jQuery mobile -->
                 <a href="#popupA" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/gallery/a.jpg"  style="width:30%"></a>
                 <div data-role="popup" id="popupA" data-overlay-theme="b" data-theme="a" data-corners="false">
                     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="images/gallery/a.jpg" style="max-height:512px;" >
@@ -422,7 +415,7 @@ For production version, add manifest and use:
                     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto ui-center" src="images/gallery/l.jpg" style="max-height:512px;" >
                     <p class="localizable" data-lclstringarray="gallery" data-lclstringarraypos=10 style="max-width:500px;"></p>
                 </div>
-                --><!-- End of new gallery -->
+                <!-- End of new gallery -->
             </div>
 
         </div>
