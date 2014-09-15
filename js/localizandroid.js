@@ -7,7 +7,7 @@
 // based on http://www.webgeekly.com/tutorials/jquery/how-to-make-your-site-multilingual-using-xml-and-jquery/
 
 // Configure the following variables to your needs
-var AVAILABLE_CODES = new Array("oc","ca", "en", "es");
+var AVAILABLE_CODES = new Array("ca", "en", "es");
 var DEFAULT_CODE = "en";
 var ARRAY_NAMES = new Array("gallery_array");
 var ARRAY_DATA_NAMES = new Array("gallery");
