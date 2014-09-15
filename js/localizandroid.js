@@ -1,30 +1,41 @@
+// localizandroid.js
+//
+// Copyright (c) 2014 Jordi López
+// MIT License - http://opensource.org/licenses/mit-license.php
+
 // An attempt to use Android string resources
 // based on http://www.webgeekly.com/tutorials/jquery/how-to-make-your-site-multilingual-using-xml-and-jquery/
 
-// Just add "localizable" as class identifier to whatever object that must be localized,
-// and then assign the string name to the custom data-lclstring attribute.
+// Configure the following variables to your needs
+var AVAILABLE_CODES = new Array("oc","ca", "en", "es");
+var DEFAULT_CODE = "en";
+var ARRAY_NAMES = new Array("gallery_array");
+var ARRAY_DATA_NAMES = new Array("gallery");
+// End of configurable variables
 
-$(function() {
-    var AVAILABLE_CODES = new Array("ca", "en", "es");
-    var DEFAULT_CODE = "en";
+function getLanguage() {
+
     var lang = navigator.language || navigator.userLanguage;
-    lang = lang.substr(0,2);
+    lang = lang.substr(0,2); // check we are using a 2 character ISO code
     if($.inArray(lang, AVAILABLE_CODES)==-1 || lang==null) {
         lang=DEFAULT_CODE;
     }
-    console.log("Language is: " + lang);
+    return lang;
+}
+
+$(function() {
+
+    console.log("localizandroid.js: Language is: " + lang);
     var langCode = '-' + lang;
     $.ajax({
         type: "GET",
         url: "strings/values" + langCode + "/strings.xml",
         dataType: "xml",
+        cache: "true",
         success: function(xml) {
             $(xml).find('string').each(function() { // Parse strings
                 var name = $(this).attr('name');
                 var text = $(this).text().replace(/\\/g,"");
-
-                // Using plain classes
-                //$("."+name).html(text);
 
                 // Using custom data- attributes
                 $(".localizable").map(function() {
@@ -34,13 +45,15 @@ $(function() {
                 });
             });
             $(xml).find('string-array').each(function() { //Parse string arrays
-                if($(this).attr('name')=='gallery_array') { // Gallery
+                var pos = $.inArray($(this).attr('name'), ARRAY_NAMES);
+                if(pos!=-1) {
                     var text = $(this).find('item').map(function() {
                         return $(this).text().replace(/\\/g,"");
                     });
-                    //$(".gallery_array_"+position).html(text);
+					
+					// Using custom data- attributes
                     $(".localizable").map(function() {
-                        if($(this).data("lclstringarray")=="gallery") {
+                        if($(this).data("lclstringarray")==ARRAY_DATA_NAMES[pos]) {
                             $(this).html(text.get($(this).data("lclstringarraypos")));
                         }
 

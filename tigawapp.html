@@ -29,7 +29,7 @@ For production version, add manifest and use:
     <script src="jquery.mobile-1.4.3.min.js"></script>
 
     <script src="js/global.js"></script>
-    <script src="js/localization.js"></script>
+    <script src="js/localizandroid.js"></script>
     <script src="js/formmanager.js"></script>
     <script src="js/uuid.js"></script>
 </head>
@@ -41,6 +41,40 @@ For production version, add manifest and use:
         <h1>Tigatrapp</h1>
     </div><!-- /header -->
 
+
+    <!-- Consent popup -->
+    <div data-role="popup" id="popupConsent" data-history="false" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+        <div data-role="header" data-theme="a">
+            <h1>Tigatrapp</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <iframe frameborder="0" height="100%" width="100%"id="consent"></iframe>
+            <a href="#" id="consentCancelButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b localizable" data-lclstring="decline_button_label" data-rel="back"></a>
+            <a href="#" id="consentOKButton" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b localizable" data-lclstring="consent_button_label" data-rel="back" data-transition="flow"></a>
+        </div>
+    </div>
+
+
+    <script>
+        // Little script for managing the consent activity
+        var lang = getLanguage(); // NEEDS localizandroid.js
+        var fileName = 'consent_' + lang + '.html';
+        $(document).on('pagechange', function(event, data) {
+        event.preventDefault();
+            if(localStorage.getItem('firstUse')==null) {    // Only appears on first use
+                $('#consent').attr('src', fileName); // Load content
+                $('#popupConsent').popup();
+                $('#popupConsent').popup('open');
+            }
+
+        });
+        $(document).on('click', '#consentOKButton', function() {
+            localStorage["firstUse"] = false;      // Should not appear again
+        });
+        $(document).on('click', '#consentCancelButton', function() {
+            //window.location = 'http://www.google.com';
+        });
+    </script>
 
     <div role="main" class="ui-content">
 
@@ -330,10 +364,11 @@ For production version, add manifest and use:
     </div><!-- /header -->
     <div role="main" class="ui-content">
         <!--To be added-->
-        <iframe frameborder="0" scrolling="no" height="100%" width="100%" id="mapFrame" src="http://tigaserver.atrapaeltigre.com/webmap/embedded/"></iframe>
+        <iframe frameborder="0" scrolling="no" height="100%" width="100%" id="mapFrame" ></iframe>
         <script type="text/javascript">
             // Let's try to fit map on screen
             $(document).on('pageshow', '#map', function() {
+                $('#mapFrame').attr('src', "http://tigaserver.atrapaeltigre.com/webmap/embedded/");
                 var windowHeight = $(window).height();
                 var headerHeight = $("#mapHeader").height();
 
@@ -419,11 +454,10 @@ For production version, add manifest and use:
             </div>
 
         </div>
+
     </div><!-- /content -->
+
 </div><!-- /page -->
-
-<!-- Popups -->
-
 
 </body>
 </html>	
